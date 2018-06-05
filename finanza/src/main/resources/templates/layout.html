@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<!-- start: Meta -->
+<meta charset="utf-8" />
+<title>Finanza</title>
+<meta name="description" content="GotYa Free Bootstrap Theme" />
+<meta name="keywords"
+	content="Template, Theme, web, html5, css3, Bootstrap" />
+<!-- <meta name="author" content="Łukasz Holeczek from creativeLabs" /> -->
+<!-- end: Meta -->
+
+<!-- start: CSS -->
+<link href="/css/bootstrap.css" rel="stylesheet" />
+<link href="/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Droid+Serif" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Boogaloo" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Economica:700,400italic" />
+<!-- end: CSS -->
+</head>
+<body>
+
+	<!--start: Header -->
+	<header th:fragment="Header">
+		<div class="container">
+			<div class="row">
+				<!--start: Navbar -->
+				<div class="span9">
+					<div class="navbar navbar-inverse">
+						<div class="navbar-inner">
+							<div class="container">
+								<a class="btn btn-navbar" data-toggle="collapse"
+									data-target=".nav-collapse"> <span class="icon-bar"></span>
+									<span class="icon-bar"></span> <span class="icon-bar"></span>
+								</a>
+								<div class="nav-collapse collapse">
+									<ul class="nav">
+										<!--  Home -->
+										<li th:class="${navHome}"><a href="/">Home</a></li>
+
+										<!--  Corsi -->
+										<li th:class="'dropdown '+ ${navCorsi}"><a href="#"
+											class="dropdown-toggle" data-toggle="dropdown">Corsi<b
+												class="caret"></b>
+										</a>
+											<ul class="dropdown-menu">
+												<li><a th:href="@{/corsi}">Visualizza tutti i corsi
+														presenti</a></li>
+												<li><a sec:authorize="hasRole('ROLE_ADMIN')"
+													th:href="@{/admin/newCorso}">Registra nuovo corso <b>[Admin]</b>
+												</a></li>
+											</ul></li>
+
+										<!--  Centri -->
+										<li th:class="'dropdown '+ ${navCentri}"><a href="#"
+											class="dropdown-toggle" data-toggle="dropdown">Centri<b
+												class="caret"></b>
+										</a>
+											<ul class="dropdown-menu">
+												<li><a th:href="@{/listCentri}">Visualizza l'elenco
+														dei centri</a></li>
+											</ul></li>
+
+										<!--  Area Riservata -->
+										<li th:class="'dropdown '+ ${navAccesso}"><a href="#"
+											class="dropdown-toggle" data-toggle="dropdown"><span
+												th:class="${navAccesso}">Area Riservata</span><b
+												class="caret"></b> </a>
+											<ul class="dropdown-menu">
+												<li sec:authorize="!isAuthenticated()">
+													<div class="actions" align="center">
+														<form th:action="@{/accedi}" method="get">
+															<input id="accedi" type="submit"
+																class="btn btn-succes btn-small"
+																value="Login/Registrazione" />
+														</form>
+													</div>
+												</li>
+												<li><a th:href="@{/responsabileUfficiale/newAllievo}">Registra
+														nuovo allievo finanziere</a></li>
+												<li><a th:href="@{/responsabileUfficiale/newCorso}">Inserisci
+														un nuovo corso</a></li>
+												<li><a th:if="${current_username}"
+													sec:authorize="hasRole('ROLE_UTENTE')"
+													th:href="@{/utente/} + ${current_username}">Visualizza
+														e gestisci le tue informazioni</a></li>
+												<li class="text-error" th:text="${erroreNewAllievo}"></li>
+												<li class="text-error" th:text="${erroreNewCorso}"></li>
+											</ul></li>
+
+										<!--  Utente Autenticato -->
+										<li sec:authorize="isAuthenticated()">
+											<div class="contact-form">
+												Benvenuto, <b sec:authentication="name">[generic user]</b>!
+												<form action="/logout" method="post">
+													<div class="actions">
+														<input id="logout" type="submit" value="Logout"
+															class="btn btn-succes btn-small" />
+													</div>
+												</form>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end: Navbar -->
+			</div>
+		</div>
+	</header>
+	<!--end: Header-->
+
+	<!-- start: InfoBox -->
+	<div class="row" th:fragment="InfoBox">
+		<div class="icons-box-vert-container">
+			<div class="span6">
+				<div class="icons-box-vert">
+					<i class="ico-ok ico-color circle-color big"></i>
+					<div class="icons-box-vert-info">
+						<h3>Triathlon Giovani</h3>
+						<p>Il Settore Giovanile è la piattaforma per la pratica di una
+							attività sportiva divertente e ottimale per lo sviluppo
+							psicofisico dei giovani. È la base da cui nascono, crescono e
+							maturano i futuri campioni.</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="icons-box-vert">
+					<i class="ico-cup  ico-white circle-color-full big-color"></i>
+					<div class="icons-box-vert-info">
+						<h3>Paratriathlon</h3>
+						<p>Il triathlon è sport inclusivo: atleti disabili e
+							normodotati gareggiano insieme e sugli stessi percorsi. Le regole
+							del paratriathlon sono un adattamento delle regole del triathlon
+							alle differenti tipologie di disabilitÃ . La conseguenza è la
+							valorizzazione delle capacità individuali.</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="icons-box-vert">
+					<i class="ico-ipad ico-color circle-color big"></i>
+					<div class="icons-box-vert-info">
+						<h3>Triathlon</h3>
+						<p>Il triathlon è uno sport multidisciplinare individuale o a
+							squadre. Dal 2000 è specialità olimpica maschile e femminile</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="icons-box-vert">
+					<i class="ico-thumbs-up  ico-white circle-color-full big-color"></i>
+					<div class="icons-box-vert-info">
+						<h3>Duathlon</h3>
+						<p>Sport multidisciplinare di resistenza nel quale l'atleta
+							copre nell'ordine una prova di corsa, una di ciclismo e una di
+							corsa, senza interruzione.</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	<!-- end: Info Box -->
+
+	<!-- start: Footer Menu -->
+	<div th:fragment="FooterMenu" id="footer-menu"
+		class="hidden-tablet hidden-phone">
+		<div class="container">
+			<div class="row">
+				<!-- start: Footer Menu Logo -->
+				<div class="span2">
+					<div id="footer-menu-logo">
+						<a href="#"><img src="/img/logo-footer-menu.png" alt="logo" /></a>
+					</div>
+				</div>
+				<div class="span1">
+					<div id="footer-menu-back-to-top">
+						<a href="#"></a>
+					</div>
+				</div>
+				<!-- end: Footer Menu Back To Top -->
+			</div>
+		</div>
+	</div>
+	<!-- end: Footer Menu -->
+
+	<!-- start: Footer -->
+	<div th:fragment="Footer" id="footer">
+		<div class="container">
+			<div class="row">
+				<!-- start: About -->
+				<div class="span8">
+					<h3>About Us</h3>
+					<p>
+						<font size="3"> Progetto per l'esame di <b>Sistemi
+								Informativi sul Web (AA 2017-2018)</b>, Università degli Studi di
+							Roma Tre - Dipartimento di Ingegneria Informatica
+						</font>
+					</p>
+					<p>
+						<font size="4"> <i>©Realizzato da Riccardo Bianchini e Testa Damiano</i><br /> <br />
+						</font>
+					</p>
+
+				</div>
+				<!-- end: About -->
+			</div>
+		</div>
+	</div>
+	<!-- end: Footer -->
+
+	<!-- start: Copyright -->
+	<div th:fragment="Copyright" id="copyright">
+		<div class="container">
+			<p>
+				&copy; 2010, creativeLabs. <a href="http://bootstrapmaster.com"
+					alt="Bootstrap Themes">Bootstrap Themes</a> designed by
+				BootstrapMaster in Jamaica. 
+			</p>
+		</div>
+	</div>
+	<!-- end: Copyright -->
+
+	<!-- start: Java Script -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<div th:fragment="javascript">
+		<script src="/js/jquery-1.8.2.js"></script>
+		<script src="/js/bootstrap.js"></script>
+		<script src="/js/flexslider.js"></script>
+		<script src="/js/carousel.js"></script>
+		<script src="/js/jquery.cslider.js"></script>
+		<script src="/js/slider.js"></script>
+		<script defer="defer" src="../js/custom.js"></script>
+	</div>
+	<!-- end: Java Script -->
+</body>
+</html>

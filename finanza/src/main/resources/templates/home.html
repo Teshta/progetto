@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<!-- start: Meta -->
+<meta charset="utf-8" />
+<title>Finanza </title>
+<meta name="description" content="GotYa Free Bootstrap Theme" />
+<meta name="keywords" content="Template, Theme, web, html5, css3, Bootstrap" />
+<!-- <meta name="author" content="Łukasz Holeczek from creativeLabs" /> -->
+<!-- end: Meta -->
+
+<!-- start: CSS -->
+<link href="/css/bootstrap.css" rel="stylesheet" />
+<link href="/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Economica:700,400italic" />
+<!-- end: CSS -->
+</head>
+<body>
+	<header th:include="layout :: Header"></header>
+
+	<!-- start: Slider -->
+	<div class="slider-wrapper">
+		<div id="da-slider" class="da-slider">
+			<div class="da-slide">
+				<div class="da-img">
+					<img src="img/img01.jpg" alt="" />
+				</div>
+			</div>
+			<div class="da-slide">
+				<div class="da-img">
+					<img src="img/img05.jpg" alt="" />
+				</div>
+			</div>
+			<div class="da-slide">
+				<div class="da-img">
+					<img src="img/img03.jpg" alt="" />
+				</div>
+			</div>
+			<div class="da-slide">
+				<div class="da-img">
+					<img src="img/img04.jpg" alt="" />
+				</div>
+			</div>
+			<nav class="da-arrows">
+				<span class="da-arrows-prev"></span> <span class="da-arrows-next"></span>
+			</nav>
+		</div>
+	</div>
+	<!-- end: Slider -->
+
+	<!--start: Wrapper-->
+	<div id="wrapper">
+
+		<!--start: Container -->
+		<div class="container">
+
+			<!-- start: Slogan-->
+			<div class="hero-unit">
+				<p>
+					Benvenuto!
+				</p>
+				<p>
+					<a href="/info" class="btn btn-success btn-large">Scopri di più sulla Guardia di Finanza &raquo;</a>
+				</p>
+			</div>
+			<!-- end: Slogan -->
+			<hr></hr>
+			<div class="row" th:include="layout :: InfoBox"></div>
+			<hr></hr>
+		</div>
+		<!--end: Container-->
+	</div>
+	<!-- end: Wrapper  -->
+
+	<div th:include="layout :: FooterMenu"></div>
+	<div th:include="layout :: Footer"></div>
+	<div th:include="layout :: Copyright"></div>
+	<div th:include="layout :: javascript"></div>
+</body>
+</html>
