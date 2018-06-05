@@ -9,6 +9,5 @@ public class DirettoreGeneraleController {
 	
 //	@RequestMapping("/direttore", method = RequestMethod.GET)
 //	public String getDirettore(Model model) {
-//		
 //	}
 }
