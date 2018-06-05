@@ -16,7 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Corso {
+public class Corso implements Comparable<Corso>{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -90,5 +90,10 @@ public class Corso {
 
 	public void setAllieviFinanzieri(List<AllievoFinanziere> allieviFinanzieri) {
 		this.allieviFinanzieri = allieviFinanzieri;
+	}
+
+	@Override
+	public int compareTo(Corso o) {
+		return this.getData().compareTo(o.getData());
 	}	
 }
