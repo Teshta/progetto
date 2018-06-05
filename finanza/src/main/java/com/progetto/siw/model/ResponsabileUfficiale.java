@@ -16,16 +16,23 @@ public class ResponsabileUfficiale {
 
 	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
+	private String password;
 
 	@Column(nullable = false)
 	private String ruolo;
 
 	@OneToOne(mappedBy = "responsabileUfficiale")
 	private CentroOperativo centroOperativo;
+	
+	@OneToOne
+	private Finanza finanza;
 
-	public ResponsabileUfficiale(Long id, String nome, String ruolo) {
+	public ResponsabileUfficiale(Long id, String nome, String password, String ruolo) {
 		this.id = id;
 		this.nome = nome;
+		this.password = password;
 		this.ruolo = ruolo;
 	}
 
@@ -43,6 +50,30 @@ public class ResponsabileUfficiale {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public CentroOperativo getCentroOperativo() {
+		return centroOperativo;
+	}
+
+	public void setCentroOperativo(CentroOperativo centroOperativo) {
+		this.centroOperativo = centroOperativo;
+	}
+
+	public Finanza getFinanza() {
+		return finanza;
+	}
+
+	public void setFinanza(Finanza finanza) {
+		this.finanza = finanza;
 	}
 
 	public String getRuolo() {
