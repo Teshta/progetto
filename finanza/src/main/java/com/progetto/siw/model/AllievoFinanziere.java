@@ -1,9 +1,8 @@
 package com.progetto.siw.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
-
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class AllievoFinanziere {
@@ -32,8 +31,9 @@ public class AllievoFinanziere {
 	@Column(nullable = false, unique = true)
 	private int telefono;
 
-	@Temporal(TemporalType.DATE)
-	private Date data;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(nullable = false)
+	private LocalDate data;
 
 	@Column(nullable = false)
 	private String luogoNascita;
@@ -41,7 +41,7 @@ public class AllievoFinanziere {
 	@ManyToMany(mappedBy = "allieviFinanzieri")
 	private List<Corso> corsi;
 
-	public AllievoFinanziere(Long id, String nome, String cognome, String email, int telefono, Date data, String luogoNascita) {
+	public AllievoFinanziere(Long id, String nome, String cognome, String email, int telefono, LocalDate data, String luogoNascita) {
 		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
@@ -92,11 +92,11 @@ public class AllievoFinanziere {
 		this.telefono = telefono;
 	}
 
-	public Date getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 

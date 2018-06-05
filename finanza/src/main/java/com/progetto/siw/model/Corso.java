@@ -1,6 +1,6 @@
 package com.progetto.siw.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,8 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Corso implements Comparable<Corso>{
@@ -24,8 +24,9 @@ public class Corso implements Comparable<Corso>{
 	@Column(nullable = false, unique = true)
 	private String nome;
 
-	@Temporal(TemporalType.DATE)
-	private Date data;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(nullable = false)
+	private LocalDate data;
 
 	@Column(nullable = false)
 	private int orario;
@@ -36,7 +37,7 @@ public class Corso implements Comparable<Corso>{
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<AllievoFinanziere> allieviFinanzieri;
 
-	public Corso(Long id, String nome, Date data, int orario) {
+	public Corso(Long id, String nome, LocalDate data, int orario) {
 		this.id = id;
 		this.nome = nome;
 		this.data = data;
@@ -60,11 +61,11 @@ public class Corso implements Comparable<Corso>{
 		this.nome = nome;
 	}
 
-	public Date getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 

@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.progetto.siw.Calcolatore;
 import com.progetto.siw.model.Corso;
@@ -37,8 +38,13 @@ public class CorsoService {
 		List<Corso> corsiCompletati = new ArrayList<>();
 		for (Corso corso: corsi) {
 			if (Calcolatore.isDataPassata(corso.getData()))
-				corsiCompletati.add(corsi);
+				corsiCompletati.add(corso);
 		}
 		return corsiCompletati;
+	}
+	
+	@Transactional
+	public void save(final Corso corso) {
+		this.corsoRepository.save(corso);
 	}
 }
