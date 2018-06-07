@@ -35,7 +35,7 @@ public class UtenteController {
 	@GetMapping("/utente/{username}")
 	public String mostraUtente(@PathVariable("username") String user, 
 			@SessionAttribute(name="current_username") String username, Model model){
-		Utente utente = utenteService.findByNome(username);
+		Utente utente = utenteService.findByUsername(username);
 		
 //		if (utente.hasAtletaGestito()) {
 //			Atleta atleta = utente.getAtletaGestito();

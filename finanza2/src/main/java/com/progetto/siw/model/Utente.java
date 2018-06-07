@@ -18,7 +18,7 @@ public class Utente {
 	private Long id;
 
 	@Column(nullable = false)
-	private String nome;
+	private String username;
 	
 	@Column(nullable = false)
 	private String password;
@@ -36,9 +36,9 @@ public class Utente {
 	@OneToOne
 	private Finanza finanza;
 
-	public Utente(Long id, String nome, String password, String ruolo) {
+	public Utente(Long id, String username, String password, String ruolo) {
 		this.id = id;
-		this.nome = nome;
+		this.username = username;
 		this.password = password;
 		this.ruolo = ruolo;
 	}
@@ -51,12 +51,12 @@ public class Utente {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -101,6 +101,6 @@ public class Utente {
 	
 	@Override
 	public String toString() {
-		return "Utente [id=" + id + ", username=" + nome + ", password=" + password + ", Centro=" + centro + "]";
+		return "Utente [id=" + id + ", username=" + username + ", password=" + password + ", Centro=" + centro + "]";
 	}
 }

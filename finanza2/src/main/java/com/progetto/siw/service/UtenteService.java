@@ -18,8 +18,8 @@ public class UtenteService{
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public Utente findByNome(String nome) {
-		return this.utenteRepository.findByNome(nome);
+	public Utente findByUsername(String nome) {
+		return this.utenteRepository.findByUsername(nome);
 	}
 	
 	@Transactional
