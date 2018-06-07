@@ -1,5 +1,7 @@
 package com.progetto.siw.controller;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +21,7 @@ public class AllievoController {
 	
 	@GetMapping("/allievo/{id}")
 	public String mostraAllievo(@PathVariable("id") Long id, Model model){
-		Allievo allievo = allievoService.findOne(id);
+		Optional<Allievo> allievo = allievoService.findById(id);
 		model.addAttribute("navAllievi", "active");
 		model.addAttribute("allievo", allievo);
 		return "view_allievo";

@@ -1,5 +1,7 @@
 package com.progetto.siw.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,12 +27,12 @@ public class AllievoService {
 		return (this.allievoRepository.findByNomeAndCognome(nome,cognome)!=null);	
 	}
 	
-	public Allievo findOne(Long id) {
-    	return this.allievoRepository.findOne(id);
+	public Optional<Allievo> findById(Long id) {
+    	return this.allievoRepository.findById(id);
     }
 	
 	public void deleteById(Long id) {
-    	this.allievoRepository.delete(id);
+    	this.allievoRepository.deleteById(id);
     }
 
 	@Transactional
