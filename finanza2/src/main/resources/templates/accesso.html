@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<!-- start: Meta -->
+<meta charset="utf-8" />
+<title>Login</title>
+<meta name="description" content="GotYa Free Bootstrap Theme" />
+<meta name="keywords" content="Template, Theme, web, html5, css3, Bootstrap" />
+<!-- <meta name="author" content="Łukasz Holeczek from creativeLabs" /> -->
+<!-- end: Meta -->
+
+<!-- start: CSS -->
+<link href="/css/bootstrap.css" rel="stylesheet" />
+<link href="/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Economica:700,400italic" />
+<!-- end: CSS -->
+</head>
+<body>
+	<header th:include="layout :: Header"></header>
+	
+	<!-- start: Wrapper -->
+	<div id="wrapper">
+
+		<!-- start: Container -->
+		<div class="container">
+
+			<!-- start: Row -->
+			<div class="row">
+
+				<!-- start: Form Login Utente-->
+				<div class="span4">
+					<div class="title">
+						<h3>Login Responsabile</h3>
+					</div>
+
+					<div id="contact-form">
+						<div class="text-error" th:if="${param.error}">Username o password non validi.</div>
+						<form action="#" th:action="@{/accedi}" th:object="${utente}" method="post">
+							<fieldset>
+								<div class="clearfix">
+									<label for="username"><span>Username*:</span></label>
+									<div class="input">
+										<input tabindex="1" size="20" id="username" name="username" type="text"
+											th:field="*{username}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('username')}">Errore: campo obbligatorio</span>
+								</div>
+								<div class="clearfix">
+									<label for="password"><span>Password:</span></label>
+									<div class="input">
+										<input tabindex="2" size="20" id="password" name="password" type="password"
+											th:field="*{password}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('password')}">Errore</span>
+								</div>
+
+								<div class="actions">
+									<button tabindex="3" type="submit" class="btn btn-succes btn-large">Autentica
+										Responsabile</button>
+								</div>
+							</fieldset>
+
+						</form>
+
+					</div>
+
+				</div>
+				<!-- end: Form Login Utente -->
+
+
+			</div>
+			<!-- end: Row -->
+
+		</div>
+		<!-- end: Container -->
+
+	</div>
+	<!-- end: Wrapper  -->
+
+
+	<div th:include="layout :: javascript"></div>
+</body>
+</html>
