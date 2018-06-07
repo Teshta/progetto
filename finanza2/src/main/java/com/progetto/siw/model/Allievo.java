@@ -19,7 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="allievo", uniqueConstraints = @UniqueConstraint(columnNames={"nome","cognome","dataNascita"}))
-public class AllievoFinanziere {
+public class Allievo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -49,7 +49,7 @@ public class AllievoFinanziere {
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Centro centro;
 
-	public AllievoFinanziere(Long id, String nome, String cognome, String email, int telefono, LocalDate data, String luogoNascita) {
+	public Allievo(Long id, String nome, String cognome, String email, int telefono, LocalDate data, String luogoNascita) {
 		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;

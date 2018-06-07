@@ -29,7 +29,7 @@ public class Finanza {
 
 	@OneToMany
 	@JoinColumn(name = "finanza_id")
-	private List<AllievoFinanziere> allieviFinanzieri;
+	private List<Allievo> allieviFinanzieri;
 
 	public Finanza(Long id, String nome) {
 		this.id = id;
@@ -71,11 +71,11 @@ public class Finanza {
 		this.centriOperativi = centriOperativi;
 	}
 
-	public List<AllievoFinanziere> getAllieviFinanzieri() {
+	public List<Allievo> getAllieviFinanzieri() {
 		return allieviFinanzieri;
 	}
 
-	public void setAllieviFinanzieri(List<AllievoFinanziere> allieviFinanzieri) {
+	public void setAllieviFinanzieri(List<Allievo> allieviFinanzieri) {
 		this.allieviFinanzieri = allieviFinanzieri;
 	}
 }

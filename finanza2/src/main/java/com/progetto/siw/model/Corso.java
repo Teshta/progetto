@@ -40,7 +40,7 @@ public class Corso implements Comparable<Corso>{
 	private Centro centroOperativo;
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private List<AllievoFinanziere> allieviFinanzieri;
+	private List<Allievo> allieviFinanzieri;
 
 	public Corso(Long id, String nome, LocalDate data, int orario) {
 		this.id = id;
@@ -98,11 +98,11 @@ public class Corso implements Comparable<Corso>{
 		this.centroOperativo = centroOperativo;
 	}
 
-	public List<AllievoFinanziere> getAllieviFinanzieri() {
+	public List<Allievo> getAllieviFinanzieri() {
 		return allieviFinanzieri;
 	}
 
-	public void setAllieviFinanzieri(List<AllievoFinanziere> allieviFinanzieri) {
+	public void setAllieviFinanzieri(List<Allievo> allieviFinanzieri) {
 		this.allieviFinanzieri = allieviFinanzieri;
 	}
 

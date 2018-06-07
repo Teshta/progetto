@@ -1,7 +1,5 @@
 package com.progetto.siw.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +16,11 @@ public class CentroService {
 		return this.centroRepository.findAll();
 	}
 	
-	public Optional<Centro> findById(Long id) {
-    	return this.centroRepository.findById(id);
+	public Centro findOne(Long id) {
+    	return this.centroRepository.findOne(id);
     }
+	
+	 public void deleteById(Long id) {
+	    	centroRepository.delete(id);
+	    }
 }

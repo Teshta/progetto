@@ -42,7 +42,7 @@ public class Centro {
 	private List<Corso> corsi;
 	
 	@OneToMany(mappedBy = "centro", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REMOVE})
-	private List<AllievoFinanziere> allievi;
+	private List<Allievo> allievi;
 
 	public Centro(Long id, String nome, String indirizzo, String email, int telefono, int capMaxAllievi) {
 		this.id = id;
@@ -119,11 +119,11 @@ public class Centro {
 		this.corsi = corsi;
 	}
 
-	public List<AllievoFinanziere> getAllievi() {
+	public List<Allievo> getAllievi() {
 		return allievi;
 	}
 
-	public void setAllievi(List<AllievoFinanziere> allievi) {
+	public void setAllievi(List<Allievo> allievi) {
 		this.allievi = allievi;
 	}
 }

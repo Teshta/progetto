@@ -8,4 +8,8 @@ public interface CentroRepository  extends CrudRepository<Centro, Long>{
 	
 	public Centro findByNome(String nome);
 	
+	public Centro findOne(Long id);
+	
+	public Centro delete(Long id);
+	
 }
