@@ -63,6 +63,19 @@ public class CorsoService {
 		return corsiPassati;
 	}
 	
+	public boolean isDuplicateSameDate(final Corso corso) {
+		Iterable<Corso> corsi = this.corsoRepository.findAll();
+		for (Corso g : corsi) {
+			if (g.getData().equals(corso.getData()))
+				return true;
+		}
+		return false;
+	}
+	
+	public void deleteById(Long id) {
+		this.corsoRepository.deleteById(id);
+	}
+	
 	@Transactional
 	public void save(final Corso corso) {
 		this.corsoRepository.save(corso);
