@@ -10,7 +10,7 @@ public interface CentroRepository  extends CrudRepository<Centro, Long>{
 	
 	public Centro findByNome(String nome);
 	
-	public Centro findOne(Long id);
+	public Optional<Centro> findById(Long id);
 	
 	public void deleteById(Long id);
 	

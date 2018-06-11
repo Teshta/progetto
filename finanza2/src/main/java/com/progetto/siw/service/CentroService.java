@@ -18,8 +18,8 @@ public class CentroService {
 		return this.centroRepository.findAll();
 	}
 	
-	public Centro findOne(Long id) {
-    	return this.centroRepository.findOne(id);
+	public Optional<Centro> findById(Long id) {
+    	return this.centroRepository.findById(id);
     }
 	
 	 public void deleteById(Long id) {
