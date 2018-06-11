@@ -953,7 +953,7 @@
     display: none;
   }
   .nav-collapse .nav .nav-header {
-    color: black;
+    color: black; 
     text-shadow: none;
   }
   .nav-collapse .nav > li > a,
