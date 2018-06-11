@@ -23,9 +23,9 @@ public class HomeController {
 	public String homepage(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-			Utente responsabile = responsabileService.findByNome(authentication.getName());
+			Utente responsabile = responsabileService.findByUsername(authentication.getName());
 			model.addAttribute(responsabile);
-			model.addAttribute("current_username", responsabile.getNome());
+			model.addAttribute("current_username", responsabile.getUsername());
 		}
 		model.addAttribute("navHome", "active");
 		return "home";

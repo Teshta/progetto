@@ -6,5 +6,5 @@ import com.progetto.siw.model.Utente;
 
 public interface UtenteRepository extends CrudRepository<Utente,String > {
 	
-	public Utente findByNome(String nome);
+	public Utente findByUsername(String username);
 }
