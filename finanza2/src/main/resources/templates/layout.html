@@ -75,39 +75,38 @@
 												class="caret"></b> </a>
 											<ul class="dropdown-menu">
 												<!-- <li sec:authorize="!isAuthenticated()"> -->
-													<div class="actions" align="center">
-														<form th:action="@{/accedi}" method="get">
-															<input id="accedi" type="submit"
-																class="btn btn-succes btn-small"
-																value="Login Responsabile" />
-														</form>
-													</div>
+												<div class="actions" align="center">
+													<form th:action="@{/accedi}" method="get">
+														<input id="accedi" type="submit"
+															class="btn btn-succes btn-small"
+															value="Login Responsabile" />
+													</form>
+												</div></li>
+										<li><a th:href="@{/Utente/newAllievo}">Registra nuovo
+												allievo finanziere</a></li>
+										<li><a th:href="@{/Utente/newCorso}">Inserisci un
+												nuovo corso</a></li>
+										<li><a th:if="${current_username}"
+											sec:authorize="hasRole('ROLE_UTENTE')"
+											th:href="@{/utente/} + ${current_username}">Visualizza e
+												gestisci le tue informazioni</a></li>
+										<li class="text-error" th:text="${erroreNewAllievo}"></li>
+										<li class="text-error" th:text="${erroreNewCorso}"></li>
+									</ul>
+									</li>
 
-												</li>
-												<li><a th:href="@{/Utente/newAllievo}">Registra
-														nuovo allievo finanziere</a></li>
-												<li><a th:href="@{/Utente/newCorso}">Inserisci un
-														nuovo corso</a></li>
-												<li><a th:if="${current_username}"
-													sec:authorize="hasRole('ROLE_UTENTE')"
-													th:href="@{/utente/} + ${current_username}">Visualizza
-														e gestisci le tue informazioni</a></li>
-												<li class="text-error" th:text="${erroreNewAllievo}"></li>
-												<li class="text-error" th:text="${erroreNewCorso}"></li>
-											</ul></li>
-
-										<!--  Utente Autenticato -->
-										<li sec:authorize="isAuthenticated()">
-											<div class="contact-form">
-												Benvenuto, <b sec:authentication="name">[generic user]</b>!
-												<form action="/logout" method="post">
-													<div class="actions">
-														<input id="logout" type="submit" value="Logout"
-															class="btn btn-succes btn-small" />
-													</div>
-												</form>
-											</div>
-										</li>
+									<!--  Utente Autenticato -->
+									<li sec:authorize="isAuthenticated()">
+										<div class="contact-form">
+											Benvenuto, <b sec:authentication="name">[generic user]</b>!
+											<form action="/logout" method="post">
+												<div class="actions">
+													<input id="logout" type="submit" value="Logout"
+														class="btn btn-succes btn-small" />
+												</div>
+											</form>
+										</div>
+									</li>
 									</ul>
 								</div>
 							</div>
@@ -117,23 +116,22 @@
 				<!--end: Navbar -->
 			</div>
 		</div>
-		
+
 	</header>
 	<!--end: Header-->
-<br>
-<br>
+	<br>
+	<br>
 
 	<!-- start: InfoBox -->
 	<div class="row" th:fragment="InfoBox">
 		<div class="icons-box-vert-container">
 			<div class="span6">
 				<div class="icons-box-vert">
-					<img src="img/img01.jpg"/>
-					<br>
+					<img src="img/img01.jpg" /> <br>
 					<div class="icons-box-vert-info">
-					<br>
-						<h3 >Competenze e funzioni</h3>
-						<p >La legge 7 gennaio 1929, n. 4 attribuisce al personale del
+						<br>
+						<h3>Competenze e funzioni</h3>
+						<p>La legge 7 gennaio 1929, n. 4 attribuisce al personale del
 							corpo la figura di agente di polizia tributaria demandando ad
 							essi l'accertamento e la repressione delle violazioni
 							finanziarie. Ai sensi della legge 23 aprile 1959 n. 189, che ne
@@ -184,12 +182,11 @@
 				</div>
 			</div>
 			<div class="span6">
-			<br>
+				<br>
 				<div class="icons-box-vert">
-					<img src="img/img02.jpg"/>
-					<br>
+					<img src="img/img02.jpg" /> <br>
 					<div class="icons-box-vert-info">
-					<br>
+						<br>
 						<h3>Personale</h3>
 						<p>Il personale è operativamente ripartito in due contingenti,
 							uno riguarda il personale impiegato a terra, che annovera la
@@ -208,12 +205,11 @@
 				</div>
 			</div>
 			<div class="span6">
-			<br>
+				<br>
 				<div class="icons-box-vert">
-					<img src="img/img03.jpg"/>
-					<br>
+					<img src="img/img03.jpg" /> <br>
 					<div class="icons-box-vert-info">
-					<br>
+						<br>
 						<h3>Reparti Aeronavali</h3>
 						<p>Il Comando aeronavale centrale, diretto da un generale di
 							corpo d'armata, preposto al: Comando Operativo Aeronavale (COAN),
@@ -233,12 +229,11 @@
 				</div>
 			</div>
 			<div class="span6">
-			<br>
+				<br>
 				<div class="icons-box-vert">
-						<img src="img/img07.jpg"/>
-					<br>
+					<img src="img/img07.jpg" /> <br>
 					<div class="icons-box-vert-info">
-					<br>
+						<br>
 						<h3>Reparti speciali</h3>
 						<p>
 							<font size="3"><b>SICO</b></font><br> Il Servizio centrale
@@ -340,15 +335,15 @@
 							distintivi di grado italiani. I gradi della Guardia di Finanza si
 							dividono in 4 categorie, definite ruoli: ufficiali (che a sua
 							volta si suddividono in ufficiali inferiori, superiori e
-							generali); ispettori (per i quali si utilizza la
-							denominazione di maresciallo, con affissi diversi a seconda
-							dell'anzianità nel grado: maresciallo, maresciallo ordinario,
-							maresciallo capo, maresciallo aiutante, Luogotenente e
-							Luogotenente carica speciale); sovrintendenti
-							(vicebrigadiere, brigadiere e brigadiere capo e brigadiere capo
-							qualifica speciale nella carriera apicale); appuntati e
-							finanzieri (finanziere, finanziere scelto, appuntato,
-							appuntato scelto, appuntato scelto qualifica speciale).
+							generali); ispettori (per i quali si utilizza la denominazione di
+							maresciallo, con affissi diversi a seconda dell'anzianità nel
+							grado: maresciallo, maresciallo ordinario, maresciallo capo,
+							maresciallo aiutante, Luogotenente e Luogotenente carica
+							speciale); sovrintendenti (vicebrigadiere, brigadiere e
+							brigadiere capo e brigadiere capo qualifica speciale nella
+							carriera apicale); appuntati e finanzieri (finanziere, finanziere
+							scelto, appuntato, appuntato scelto, appuntato scelto qualifica
+							speciale).
 						</p>
 					</div>
 					<div class="clear"></div>
@@ -364,12 +359,10 @@
 	<div th:fragment="FooterMenu" id="footer-menu"
 		class="hidden-tablet hidden-phone">
 		<div class="container">
-			<div class="row">
-				
-			</div>
+			<div class="row"></div>
 		</div>
 	</div>
-	<!-- end: Footer Menu --> 
+	<!-- end: Footer Menu -->
 
 	<!-- start: Footer -->
 	<div th:fragment="Footer" id="footer">
@@ -377,7 +370,9 @@
 			<div class="row">
 				<!-- start: About -->
 				<div class="span8">
-					<h3>About Us     <a href="#"><img src="img/freccia.png" width="30"/></a></h3>
+					<h3>
+						About Us <a href="#"><img src="img/freccia.png" width="30" /></a>
+					</h3>
 					<p>
 						<font size="3"> Progetto per l'esame di <b>Sistemi
 								Informativi sul Web (AA 2017-2018)</b>, Università degli Studi di

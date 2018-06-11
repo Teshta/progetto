@@ -24,7 +24,7 @@ public class Centro {
 	private String nome;
 
 	@Column(unique = true, nullable = false)
-	private String indirizzo;//
+	private String indirizzo;
 
 	@Column(unique = true, nullable = false)
 	private String email;
@@ -44,6 +44,10 @@ public class Centro {
 	@OneToMany(mappedBy = "centro", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REMOVE})
 	private List<Allievo> allievi;
 
+	public Centro() {
+		
+	}
+	
 	public Centro(Long id, String nome, String indirizzo, String email, int telefono, int capMaxAllievi) {
 		this.id = id;
 		this.nome = nome;

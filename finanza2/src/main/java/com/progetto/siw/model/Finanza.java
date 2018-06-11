@@ -31,6 +31,10 @@ public class Finanza {
 	@JoinColumn(name = "finanza_id")
 	private List<Allievo> allieviFinanzieri;
 
+	public Finanza() {
+		
+	}
+	
 	public Finanza(Long id, String nome) {
 		this.id = id;
 		this.centriOperativi = new LinkedList<>();

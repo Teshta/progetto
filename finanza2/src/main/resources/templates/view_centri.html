@@ -37,11 +37,8 @@
 						<h3>Lista dei Centri Operativi</h3>
 					</div>
 					<ul>
-						<li th:each="entry: ${elencoCentri}"><b th:text="${entry.key}"></b>
-							<ul>
-								<li th:each="centro: ${entry.value}"><a th:href="@{/listCentri/} + ${centro.id}"
+								<li th:each="centro: ${elencoCentri}"><a th:href="@{/listCentri/} + ${centro.id}"
 									th:text="${centro.nome}"></a></li>
-							</ul></li>
 					</ul>
 				</div>
 				<!-- end: List Centri -->

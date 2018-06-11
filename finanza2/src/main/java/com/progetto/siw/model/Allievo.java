@@ -49,6 +49,10 @@ public class Allievo {
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Centro centro;
 
+	public Allievo() {
+		
+	}
+	
 	public Allievo(Long id, String nome, String cognome, String email, int telefono, LocalDate data, String luogoNascita) {
 		this.id = id;
 		this.nome = nome;

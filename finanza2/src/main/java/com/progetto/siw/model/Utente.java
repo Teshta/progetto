@@ -22,9 +22,6 @@ public class Utente {
 	
 	@Column(nullable = false)
 	private String password;
-
-	@Column(nullable = false)
-	private String ruolo;
 	
 	@NotNull
 	@Column(nullable = false)
@@ -36,11 +33,14 @@ public class Utente {
 	@OneToOne
 	private Finanza finanza;
 
+	public Utente() {
+		
+	}
+	
 	public Utente(Long id, String username, String password, String ruolo) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.ruolo = ruolo;
 	}
 
 	public Long getId() {
@@ -89,14 +89,6 @@ public class Utente {
 
 	public void setFinanza(Finanza finanza) {
 		this.finanza = finanza;
-	}
-
-	public String getRuolo() {
-		return ruolo;
-	}
-
-	public void setRuolo(String ruolo) {
-		this.ruolo = ruolo;
 	}
 	
 	@Override

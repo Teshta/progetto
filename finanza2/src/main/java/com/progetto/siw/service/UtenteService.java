@@ -15,16 +15,16 @@ public class UtenteService{
 	@Autowired
 	private UtenteRepository utenteRepository;
 	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+//	@Autowired
+//	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public Utente findByUsername(String nome) {
-		return this.utenteRepository.findByUsername(nome);
+	public Utente findByUsername(String username) {
+		return this.utenteRepository.findByUsername(username);
 	}
 	
 	@Transactional
 	public void save(final Utente utente) {		
-		utente.setPassword(bCryptPasswordEncoder.encode(utente.getPassword()));
+		//utente.setPassword(bCryptPasswordEncoder.encode(utente.getPassword()));
 		utente.setEnabled(true);
 		
 		this.utenteRepository.save(utente);

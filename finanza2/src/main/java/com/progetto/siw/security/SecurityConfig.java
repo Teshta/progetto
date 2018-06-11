@@ -14,10 +14,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
+@EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	private final String usersQuery = "SELECT nome, password, 1 FROM utenti WHERE username = ?";
-	private final String rolesQuery = "SELECT u.nome, ruoli.ruolo authority " +
+	private final String usersQuery = "SELECT username, password, 1 FROM utenti WHERE username = ?";
+	private final String rolesQuery = "SELECT u.username, ruoli.ruolo authority " +
 			"FROM utenti u JOIN ruoli_utente ruoli ON u.id = ruoli.utente_id WHERE u.username = ?";
 
 	@Qualifier("dataSource")
@@ -30,18 +31,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private RedirectLogoutSuccessHandler logoutSuccessHandler;
 
-	@Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+//	@Bean
+//	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	}
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(dataSource)
-		.passwordEncoder(new BCryptPasswordEncoder())
-		.usersByUsernameQuery(usersQuery)
-		.authoritiesByUsernameQuery(rolesQuery);
-	}
+//	@Override
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.jdbcAuthentication().dataSource(dataSource)
+////		.passwordEncoder(new BCryptPasswordEncoder())
+//		.usersByUsernameQuery(usersQuery)
+//		.authoritiesByUsernameQuery(rolesQuery);
+//	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -62,11 +63,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.logoutSuccessHandler(logoutSuccessHandler);
 	}
 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(dataSource)
-		.passwordEncoder(bCryptPasswordEncoder())
-		.usersByUsernameQuery(usersQuery)
-		.authoritiesByUsernameQuery(rolesQuery);
-	}
+//	@Autowired
+//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.jdbcAuthentication().dataSource(dataSource)
+//		.passwordEncoder(bCryptPasswordEncoder())
+//		.usersByUsernameQuery(usersQuery)
+//		.authoritiesByUsernameQuery(rolesQuery);
+//	}
 }

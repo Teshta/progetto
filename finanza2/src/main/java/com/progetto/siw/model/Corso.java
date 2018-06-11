@@ -42,6 +42,10 @@ public class Corso implements Comparable<Corso>{
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Allievo> allieviFinanzieri;
 
+	public Corso() {
+		
+	}
+	
 	public Corso(Long id, String nome, LocalDate data, int orario) {
 		this.id = id;
 		this.nome = nome;
