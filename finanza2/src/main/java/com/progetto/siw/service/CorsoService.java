@@ -72,6 +72,7 @@ public class CorsoService {
 		return false;
 	}
 	
+	@Transactional
 	public void deleteById(Long id) {
 		this.corsoRepository.deleteById(id);
 	}

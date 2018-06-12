@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,7 +46,7 @@ public class CorsoController {
 		return "form";
 	}
 	
-	@PostMapping("/admin/newCorso")
+	@PostMapping("/utente/newCorso")
 	public String checkCorsoInfo(@Valid @ModelAttribute Corso corso, BindingResult bindingResult, Model model) {
 		String nextPage = "form";
 		model.addAttribute("navCorsi", "active");
@@ -104,6 +105,7 @@ public class CorsoController {
 //		return "redirect:/listCorsi";
 //		}
 	
+	@Transactional
 	@PostMapping("/admin/deleteCorso/{id}")
 	public String eliminaCorso(@PathVariable("id") Long id, 
 			RedirectAttributes redir, Model model){

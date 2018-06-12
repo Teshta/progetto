@@ -182,7 +182,7 @@ SPAN.td {
 						<h3>Registrazione Corso</h3>
 					</div>
 					<div id="contact-form">
-						<form action="#" th:action="@{/admin/newCorso}" th:object="${corso}" method="post">
+						<form action="#" th:action="@{/utente/newCorso}" th:object="${corso}" method="post">
 							<fieldset>
 								<div class="clearfix">
 									<label for="nome"><span>Nome del corso*:</span></label>
@@ -203,7 +203,7 @@ SPAN.td {
 								<div class="clearfix">
 									<label for="orario"><span>Orario*:</span></label>
 									<div class="input">
-										<input tabindex="3" size="50" id="orario" name="orario" type="time"
+										<input id="orario" name="orario" type="time"
 											th:value="*{orario}" required="required" />
 									</div>
 									<span th:if="${#fields.hasErrors('orario')}">Errore: campo obbligatorio</span>
