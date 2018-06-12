@@ -79,7 +79,7 @@ public class AllievoController {
 		if (!bindingResult.hasErrors()) {
 			// controllo età minima
 
-			if (!allievoService.isDuplicate(allievo)) {
+//			if (!allievoService.isDuplicate(allievo)) {
 				/* Attributi manipolati */
 				allievo.setNome(allievo.getNome().toUpperCase());
 				allievo.setCognome(allievo.getCognome().toUpperCase());
@@ -96,9 +96,9 @@ public class AllievoController {
 
 				model.addAttribute(allievo);
 				model.addAttribute("successo", "Allievo registrato correttamente");
-			} else {
-				model.addAttribute("errore", "L'allievo è già presente nel sistema");
-			}
+//			} else {
+//				model.addAttribute("errore", "L'allievo è già presente nel sistema");
+//			}
 		}	
 		model.addAttribute("elencoCorsi", corsoService.findAll());
 		return nextPage;
