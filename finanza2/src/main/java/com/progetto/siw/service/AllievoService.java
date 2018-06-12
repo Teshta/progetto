@@ -16,7 +16,7 @@ public class AllievoService {
 	@Autowired
 	private AllievoRepository allievoRepository;
 
-	public Allievo findByNomeAndCognome(String nome,String cognome) {
+	public List<Allievo> findByNomeAndCognome(String nome,String cognome) {
 		return this.allievoRepository.findByNomeAndCognome(nome,cognome);
 	}
 
@@ -33,8 +33,7 @@ public class AllievoService {
     }
 	
 	 public boolean isDuplicate(final Allievo allievo) {
-	    	@SuppressWarnings("unchecked")
-			List<Allievo> allievi = (List<Allievo>) this.allievoRepository.findByNomeAndCognome(allievo.getNome(),allievo.getCognome());
+			List<Allievo> allievi = this.allievoRepository.findByNomeAndCognome(allievo.getNome(),allievo.getCognome());
 			for (Allievo a : allievi) {
 				if (a.getNome().equals(allievo.getNome()) && a.getData().equals(allievo.getData()))
 					return true;

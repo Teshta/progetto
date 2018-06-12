@@ -127,7 +127,13 @@ public class Allievo {
 
 	public void setCorso(List<Corso> corso) {
 		this.corsi = corso;
-	}	
-	
-	
+	}
+
+	public Centro getCentro() {
+		return centro;
+	}
+
+	public void setCentro(Centro centro) {
+		this.centro = centro;
+	}		
 }

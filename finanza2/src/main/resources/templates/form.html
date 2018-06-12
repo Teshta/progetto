@@ -76,9 +76,6 @@ SPAN.td {
 									<span th:if="${#fields.hasErrors('cognome')}">Errore:
 										campo obbligatorio</span>
 								</div>
-								
-								
-								
 								 <div class="clearfix">
 									<label for="data"><span>Data di Nascita*:</span></label>
 									<div class="input">
@@ -87,11 +84,7 @@ SPAN.td {
 									</div>
 									<span th:if="${#fields.hasErrors('data')}">Errore:
 										campo obbligatorio</span>
-								</div> 
-								
-								
-								
-								
+								</div> 								
 								<div class="clearfix">
 									<label for="luogoNascita"><span>Luogo di
 											Nascita*:</span></label>
@@ -114,15 +107,14 @@ SPAN.td {
 								<div class="clearfix">
 									<label for="telefono"><span>Telefono*:</span></label>
 									<div class="input">
-										<input tabindex="6" id="telefono" name="telefono" type="tel"
+										<input tabindex="6" id="telefono" name="telefono" type="number"
 											th:field="*{telefono}" required="required" />
 									</div>
 									<span th:if="${#fields.hasErrors('telefono')}">Errore:
 										campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
-									<label for="centro"><span>Seleziona un centro(da
-											cambiare):</span></label>
+									<label for="centro"><span>Seleziona un Centro Operativo:</span></label>
 									<div class="input">
 										<select tabindex="7" id="centro" name="centroID">
 											<option value="">&lt;seleziona&gt;</option>
@@ -206,7 +198,7 @@ SPAN.td {
 									<b>Cognome:</b> <span th:text="${allievo.cognome}"></span>
 								</h4>
 								<h4>
-									<b>Data di Nascita:</b> <span th:text="${allievo.dataNascita}"></span>
+									<b>Data di Nascita:</b> <span th:text="${allievo.data}"></span>
 								</h4>
 								<h4>
 									<b>Luogo di Nascita:</b> <span
@@ -219,7 +211,7 @@ SPAN.td {
 									<b>Telefono:</b> <span th:text="${allievo.telefono}"></span>
 								</h4>
 								<h4>
-									<b>Centro:</b> <span th:text="${allievo.centro.nome}"></span>
+									<b>Centro:</b> <span th:text="${allievo.centro}"></span>
 								</h4>
 							</div>
 							<div th:if="${formCentro}">
