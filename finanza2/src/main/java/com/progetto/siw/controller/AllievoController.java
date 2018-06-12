@@ -67,7 +67,7 @@ public class AllievoController {
 		return nextPage;
 	}
 
-	@PostMapping("/utente/newAtleta")
+	@PostMapping("/utente/newAllievo")
 	public String checkAtletaInfo(@Valid @ModelAttribute Allievo allievo, 
 			@RequestParam(defaultValue="") Long centroID, 
 			@SessionAttribute(name="current_username") String username,
