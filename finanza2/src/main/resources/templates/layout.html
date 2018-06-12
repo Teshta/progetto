@@ -54,8 +54,7 @@
 												<li><a th:href="@{/corsi}">Visualizza tutti i corsi
 														presenti</a></li>
 												<li><a sec:authorize="hasRole('ROLE_UTENTE')"
-													th:href="@{/utente/newCorso}">Registra nuovo corso 
-												</a></li>
+													th:href="@{/utente/newCorso}">Registra nuovo corso </a></li>
 											</ul></li>
 
 										<!--  Centri -->
@@ -81,40 +80,40 @@
 															class="btn btn-succes btn-small"
 															value="Login Responsabile" />
 													</form>
-												</div></li>
-										<li><a th:if="${current_username}" 
-											sec:authorize="hasRole('ROLE_UTENTE')"
-										    th:href="@{/Utente/newAllievo}">Registra nuovo
-												allievo finanziere</a></li>
-										<li><a th:if="${current_username}" 
-											sec:authorize="hasRole('ROLE_ADMIN')"
-										    th:href="@{/Utente/newAllievo}">Registra nuovo
-												allievo finanziere</a></li>
-										<li><a th:if="${current_username}"
-											sec:authorize="hasRole('ROLE_UTENTE')"
-											th:href="@{/utente/} + ${current_username}">Visualizza e
-												gestisci le tue informazioni</a></li>
-										<li><a th:if="${current_username}"
-											sec:authorize="hasRole('ROLE_ADMIN')"
-											th:href="@{/utente/} + ${current_username}">Visualizza e
-												gestisci le tue informazioni</a></li>
-										<li class="text-error" th:text="${erroreNewAllievo}"></li>
-										<li class="text-error" th:text="${erroreNewCorso}"></li>
-									</ul>
-									</li>
-
-									<!--  Utente Autenticato -->
-									<li sec:authorize="isAuthenticated()">
-										<div class="contact-form">
-											Benvenuto, <b sec:authentication="name">[generic user]</b>!
-											<form action="/logout" method="post">
-												<div class="actions">
-													<input id="logout" type="submit" value="Logout"
-														class="btn btn-succes btn-small" />
 												</div>
-											</form>
-										</div>
-									</li>
+
+												<li><a th:if="${current_username}"
+													sec:authorize="hasRole('ROLE_UTENTE')"
+													th:href="@{/utente/newAllievo}">Registra nuovo allievo
+														finanziere</a></li>
+												<li><a th:if="${current_username}"
+													sec:authorize="hasRole('ROLE_ADMIN')"
+													th:href="@{/utente/newAllievo}">Registra nuovo allievo
+														finanziere</a></li>
+												<li><a th:if="${current_username}"
+													sec:authorize="hasRole('ROLE_UTENTE')"
+													th:href="@{/utente/} + ${current_username}">Visualizza
+														e gestisci le tue informazioni</a></li>
+												<li><a th:if="${current_username}"
+													sec:authorize="hasRole('ROLE_ADMIN')"
+													th:href="@{/utente/} + ${current_username}">Visualizza
+														e gestisci le tue informazioni</a></li>
+												<li class="text-error" th:text="${erroreNewAllievo}"></li>
+												<li class="text-error" th:text="${erroreNewCorso}"></li>
+											</ul></li>
+
+										<!--  Utente Autenticato -->
+										<li sec:authorize="isAuthenticated()">
+											<div class="contact-form">
+												Benvenuto, <b sec:authentication="name">[generic user]</b>!
+												<form action="/logout" method="post">
+													<div class="actions">
+														<input id="logout" type="submit" value="Logout"
+															class="btn btn-succes btn-small" />
+													</div>
+												</form>
+											</div>
+										</li>
 									</ul>
 								</div>
 							</div>

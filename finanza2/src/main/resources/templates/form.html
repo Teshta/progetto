@@ -21,9 +21,7 @@
 <link rel="stylesheet" type="text/css"
 	href="http://fonts.googleapis.com/css?family=Economica:700,400italic" />
 <!-- end: CSS -->
-</head>
-<body>
-	<style>
+<style>
 DIV.table {
 	display: table;
 }
@@ -36,6 +34,8 @@ SPAN.td {
 	display: table-cell;
 }
 </style>
+</head>
+<body>
 	<header th:include="layout :: Header"></header>
 	<!-- start: Wrapper -->
 	<div id="wrapper">
@@ -182,7 +182,7 @@ SPAN.td {
 						<h3>Registrazione Corso</h3>
 					</div>
 					<div id="contact-form">
-						<form action="#" th:action="@{/admin/newCorso}" th:object="${corso}" method="post">
+						<form action="#" th:action="@{/utente/newCorso}" th:object="${corso}" method="post">
 							<fieldset>
 								<div class="clearfix">
 									<label for="nome"><span>Nome del corso*:</span></label>
