@@ -1,5 +1,6 @@
 package com.progetto.siw.model;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class Corso implements Comparable<Corso>{
 
 	@NumberFormat(pattern = "hh:mm")
 	@Column(nullable = false)
-	private int orario;
+	private Time orario;
 	
 	@Column(nullable = false)
 	private boolean completato;
@@ -46,14 +47,14 @@ public class Corso implements Comparable<Corso>{
 		
 	}
 	
-	public Corso(Long id, String nome, LocalDate data, int orario) {
-		this.id = id;
-		this.nome = nome;
-		this.data = data;
-		this.orario = orario;
-		this.completato=false;
-		this.allieviFinanzieri = new LinkedList<>();
-	}
+//	public Corso(Long id, String nome, LocalDate data, Time orario) {
+//		this.id = id;
+//		this.nome = nome;
+//		this.data = data;
+//		this.orario = orario;
+//		this.completato=false;
+//		this.allieviFinanzieri = new LinkedList<>();
+//	}
 
 	public Long getId() {
 		return id;
@@ -79,11 +80,11 @@ public class Corso implements Comparable<Corso>{
 		this.data = data;
 	}
 
-	public int getOrario() {
+	public Time getOrario() {
 		return orario;
 	}
 
-	public void setOrario(int orario) {
+	public void setOrario(Time orario) {
 		this.orario = orario;
 	}
 	

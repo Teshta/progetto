@@ -55,7 +55,7 @@ public class CorsoController {
 		if (!bindingResult.hasErrors()) {
 			// controllo data futura
 			if (Calcolatore.convalidaDataCorso(corso.getData())) {
-				// controllo gara esistente nello stesso giorno
+				// controllo corso esistente nello stesso giorno
 				if (!corsoService.isDuplicateSameDate(corso)) {
 					/*Attributi manipolati*/
 					corso.setNome(corso.getNome().toUpperCase());
