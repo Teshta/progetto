@@ -81,4 +81,8 @@ public class CorsoService {
 	public void save(final Corso corso) {
 		this.corsoRepository.save(corso);
 	}
+
+	public List<Corso> findById(Long id) {
+		return this.corsoRepository.findById(id);
+	}
 }

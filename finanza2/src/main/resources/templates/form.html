@@ -56,7 +56,7 @@ SPAN.td {
 					</div>
 					<div id="contact-form">
 						<form action="#" th:action="@{/utente/newAllievo}"
-							th:object="${allievo}" method="get">
+							th:object="${allievo}" method="post">
 							<fieldset>
 								<div class="clearfix">
 									<label for="nome"><span>Nome*:</span></label>
@@ -119,8 +119,8 @@ SPAN.td {
 									<div class="input">
 										<select tabindex="7" id="centro" name="centroID">
 											<option value="">&lt;seleziona&gt;</option>
-												<option th:each="centro: ${elencoCentri}"
-													th:value="${centro.id}" th:text="${centro.nome}"></option>
+											<option th:each="centro: ${elencoCentri}"
+												th:value="${centro.id}" th:text="${centro.nome}"></option>
 										</select>
 									</div>
 								</div>
@@ -222,7 +222,7 @@ SPAN.td {
 									<label for="data"><span>Data Svolgimento:</span></label>
 									<div class="input">
 										<input tabindex="2" id="data" name="data" type="date"
-											th:field="*{data}" required="required" /> 
+											th:field="*{data}" required="required" />
 									</div>
 									<span th:if="${#fields.hasErrors('data')}">Errore: campo
 										obbligatorio</span>

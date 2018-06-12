@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.progetto.siw.model.Centro;
 
-public interface CentroRepository  extends CrudRepository<Centro, Long>{
+public interface CentroRepository  extends CrudRepository<Centro, String>{
 	
 	public Centro findByNome(String nome);
 	
