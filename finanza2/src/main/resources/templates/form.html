@@ -231,11 +231,6 @@ SPAN.td {
 										obbligatorio</span>
 								</div>
 								<div class="clearfix">
-									<label for="orario"><span>Orario:</span></label>
-									<div class="input">
-										<input id="orario" name="orario" step="1" type="time"
-											th:value="*{orario}" required="required" />
-									</div>
 									<div class="actions">
 										<button tabindex="3" type="submit"
 											class="btn btn-succes btn-large">Conferma</button>
@@ -313,9 +308,6 @@ SPAN.td {
 								</h4>
 								<h4>
 									<b>Data di Svolgimento</b> <span th:text="${corso.data}"></span>
-								</h4>
-								<h4>
-									<b>Orario</b> <span th:text="${corso.orario}"></span>
 								</h4>
 								<hr />
 								<h4>Ora gli allievi potranno essere iscritti al corso.</h4>

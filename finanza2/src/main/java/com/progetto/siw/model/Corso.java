@@ -30,9 +30,9 @@ public class Corso implements Comparable<Corso>{
 	@Column(nullable = false)
 	private LocalDate data;//cambio
 
-	@NumberFormat(pattern = "hh:mm")
-	@Column(nullable = false)
-	private Time orario;
+//	@NumberFormat(pattern = "hh:mm")
+//	@Column
+//	private Time orario;
 	
 	@Column(nullable = false)
 	private boolean completato;
@@ -80,13 +80,13 @@ public class Corso implements Comparable<Corso>{
 		this.data = data;
 	}
 
-	public Time getOrario() {
-		return orario;
-	}
-
-	public void setOrario(Time orario) {
-		this.orario = orario;
-	}
+//	public Time getOrario() {
+//		return orario;
+//	}
+//
+//	public void setOrario(Time orario) {
+//		this.orario = orario;
+//	}
 	
 	public boolean isCompletato() {
 		return completato;

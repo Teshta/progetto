@@ -14,8 +14,7 @@ public class Calcolatore {
 	}
 
 	public static boolean convalidaDataCorso(LocalDate date) {
-		return (Period.between(LocalDate.of(1900,1,1), date).getDays() > 0) &&
-				(Period.between(date, LocalDate.now()).getDays() > 0);
+			return (Period.between(LocalDate.now(), date).getDays() > 0);
 	}
 
 	public static boolean isDataPassata(LocalDate date) {

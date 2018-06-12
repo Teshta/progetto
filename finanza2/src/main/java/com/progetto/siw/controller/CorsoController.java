@@ -54,7 +54,7 @@ public class CorsoController {
 
 		if (!bindingResult.hasErrors()) {
 			// controllo data futura
-			if (Calcolatore.convalidaDataCorso(corso.getData())) {
+//			if (Calcolatore.convalidaDataCorso(corso.getData())) {
 				// controllo corso esistente nello stesso giorno
 				if (!corsoService.isDuplicateSameDate(corso)) {
 					/*Attributi manipolati*/
@@ -67,9 +67,9 @@ public class CorsoController {
 				} else {
 					model.addAttribute("errore", "È già presente un corso per quella data");
 				}
-			} else {
-				model.addAttribute("errore", "Inserire una data valida (non quella odierna)");
-			}
+//			} else {
+//				model.addAttribute("errore", "Inserire una data valida (non quella odierna)");
+//			}
 		}
 		return nextPage;
 	}
