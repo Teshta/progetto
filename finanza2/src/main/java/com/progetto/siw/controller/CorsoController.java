@@ -38,7 +38,7 @@ public class CorsoController {
 		return "view_corsi";
 	}
 	
-	@GetMapping("/admin/newCorso")
+	@GetMapping("/utente/newCorso")
 	public String mostraForm(Corso corso, Model model) {
 		model.addAttribute("navCorsi", "active");
 		model.addAttribute("formCorso", true);

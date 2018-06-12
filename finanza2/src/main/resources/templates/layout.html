@@ -53,8 +53,8 @@
 											<ul class="dropdown-menu">
 												<li><a th:href="@{/corsi}">Visualizza tutti i corsi
 														presenti</a></li>
-												<li><a sec:authorize="hasRole('ROLE_ADMIN')"
-													th:href="@{/admin/newCorso}">Registra nuovo corso <b>[Admin]</b>
+												<li><a sec:authorize="hasRole('ROLE_UTENTE')"
+													th:href="@{/utente/newCorso}">Registra nuovo corso 
 												</a></li>
 											</ul></li>
 
