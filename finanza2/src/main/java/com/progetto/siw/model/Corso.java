@@ -28,7 +28,7 @@ public class Corso implements Comparable<Corso>{
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(nullable = false)
-	private LocalDate data;
+	private LocalDate data;//cambio
 
 	@NumberFormat(pattern = "hh:mm")
 	@Column(nullable = false)
