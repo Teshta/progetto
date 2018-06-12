@@ -80,7 +80,7 @@ SPAN.td {
 									<label for="dataNascita"><span>Data di Nascita*:</span></label>
 									<div class="input">
 										<input tabindex="3" id="dataNascita" name="dataNascita"
-											type="date" th:field="*{dataNascita}" required="required" />
+											type="datetime-local" th:field="*{dataNascita}" required="required" />
 									</div>
 									<span th:if="${#fields.hasErrors('dataNascita')}">Errore:
 										campo obbligatorio</span>
@@ -110,7 +110,7 @@ SPAN.td {
 										<input tabindex="6" id="telefono" name="telefono" type="tel"
 											th:field="*{telefono}" required="required" />
 									</div>
-									<span th:if="${#fields.hasErrors('email')}">Errore:
+									<span th:if="${#fields.hasErrors('telefono')}">Errore:
 										campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
@@ -119,11 +119,8 @@ SPAN.td {
 									<div class="input">
 										<select tabindex="7" id="centro" name="centroID">
 											<option value="">&lt;seleziona&gt;</option>
-											<optgroup th:each="entry: ${elencoCentri}"
-												th:label="${entry.key}">
-												<option th:each="centro: ${entry.value}"
+												<option th:each="centro: ${elencoCentri}"
 													th:value="${centro.id}" th:text="${centro.nome}"></option>
-											</optgroup>
 										</select>
 									</div>
 								</div>
