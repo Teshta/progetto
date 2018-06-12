@@ -50,11 +50,11 @@
 								<td th:text="${corso.data}" align="center"></td>
 								<td th:text="${corso.nome}" align="center"></td>
 								<td sec:authorize="hasRole('ROLE_UTENTE')" class="text-success">
-									<form th:action="@{/utente/newAllievo/}" method="get">
+									<!-- <form th:action="@{/utente/newAllievo/}" method="get">
 										<div class="actions">
 											<input type="submit" value="Iscrivi" />
-										</div>
-									</form>
+										</div> 
+									</form> -->
 								</td>
 								<td sec:authorize="hasRole('ROLE_ADMIN')">
 									<form th:action="@{/admin/deleteCorso/} + ${corso.id}" method="post">

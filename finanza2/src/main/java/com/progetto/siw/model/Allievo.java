@@ -1,6 +1,7 @@
 package com.progetto.siw.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -53,16 +54,16 @@ public class Allievo {
 		
 	}
 	
-	public Allievo(Long id, String nome, String cognome, String email, int telefono, LocalDate data, String luogoNascita) {
-		this.id = id;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.email = email;
-		this.telefono = telefono;
-		this.dataNascita = data;
-		this.luogoNascita = luogoNascita;
-		this.corsi = new LinkedList<>();
-	}
+//	public Allievo(Long id, String nome, String cognome, String email, int telefono, LocalDate data, String luogoNascita) {
+//		this.id = id;
+//		this.nome = nome;
+//		this.cognome = cognome;
+//		this.email = email;
+//		this.telefono = telefono;
+//		this.dataNascita = data;
+//		this.luogoNascita = luogoNascita;
+//		this.corsi = new LinkedList<>();
+//	}
 
 	public Long getId() {
 		return id;

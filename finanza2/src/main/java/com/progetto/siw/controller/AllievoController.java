@@ -42,7 +42,6 @@ public class AllievoController {
 	
 	@GetMapping("/utente/newAllievo")
 	public String mostraForm(Allievo allievo, 
-			@SessionAttribute(name="current_username") String username,
 			RedirectAttributes redir,
 			Model model) {	
 		String nextPage = "form";
