@@ -38,13 +38,13 @@
 							Pannello Responsabile Ufficiale <span sec:authentication="name"></span>
 						</h3>
 					</div>
-					<!-- start: Form AllievoFinanziere -->
-				<div th:if="${formAtleta}" class="span5">
+					<!-- start: Form Allievo -->
+				<div th:if="${formAllievo}" class="span5">
 					<div class="title">
 						<h3>Registrazione allievo finanziere</h3>
 					</div>
 					<div id="contact-form">
-						<form action="#" th:action="@{/utente/newAtleta}" th:object="${atleta}" method="post">
+						<form action="#" th:action="@{/utente/newAllievo}" th:object="${allievo}" method="post">
 							<fieldset>
 								<div class="clearfix">
 									<label for="nome"><span>Nome*:</span></label>
@@ -95,16 +95,16 @@
 									<span th:if="${#fields.hasErrors('dataNascita')}">Errore: campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
-									<label for="sesso"><span>Centro Operativo* :</span></label>
+									<label for="centro"><span>Centro Operativo* :</span></label>
 									<div class="input">
-										<select tabindex="4" id="centroOperativo" name="centroOperativo" th:field="*{centroOperativo}" required="required">
+										<select tabindex="4" id="centro" name="centro" th:field="*{centro}" required="required">
 											<option value="">&lt;seleziona&gt;</option>
 											<option value="aerea">Sezione Aerea Guardia di Finanza</option>
 											<option value="navale">Sezione Navale Guardia di Finanza</option>
 											<option value="tecnica">Reparto Tecnico Logistico Amministrativo</option>
 										</select>
 									</div>
-									<span th:if="${#fields.hasErrors('sesso')}">Errore: campo obbligatorio</span>
+									<span th:if="${#fields.hasErrors('centro')}">Errore: campo obbligatorio</span>
 								</div>
 								<div class="actions">
 									<button tabindex="7" type="submit" class="btn btn-succes btn-large">Conferma</button>

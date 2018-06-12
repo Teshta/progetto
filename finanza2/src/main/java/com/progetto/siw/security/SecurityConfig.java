@@ -31,18 +31,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private RedirectLogoutSuccessHandler logoutSuccessHandler;
 
-//	@Bean
-//	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
-//	@Override
-//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.jdbcAuthentication().dataSource(dataSource)
-////		.passwordEncoder(new BCryptPasswordEncoder())
-//		.usersByUsernameQuery(usersQuery)
-//		.authoritiesByUsernameQuery(rolesQuery);
-//	}
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.jdbcAuthentication().dataSource(dataSource)
+		.passwordEncoder(new BCryptPasswordEncoder())
+		.usersByUsernameQuery(usersQuery)
+		.authoritiesByUsernameQuery(rolesQuery);
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -63,11 +63,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.logoutSuccessHandler(logoutSuccessHandler);
 	}
 
-//	@Autowired
-//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.jdbcAuthentication().dataSource(dataSource)
-//		.passwordEncoder(bCryptPasswordEncoder())
-//		.usersByUsernameQuery(usersQuery)
-//		.authoritiesByUsernameQuery(rolesQuery);
-//	}
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.jdbcAuthentication().dataSource(dataSource)
+		.passwordEncoder(bCryptPasswordEncoder())
+		.usersByUsernameQuery(usersQuery)
+		.authoritiesByUsernameQuery(rolesQuery);
+	}
 }

@@ -17,7 +17,7 @@ public class Utente {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 
-	@Column(nullable = false)
+	@Column(unique = true)
 	private String username;
 	
 	@Column(nullable = false)
@@ -32,16 +32,6 @@ public class Utente {
 	
 	@OneToOne
 	private Finanza finanza;
-
-	public Utente() {
-		
-	}
-	
-	public Utente(Long id, String username, String password, String ruolo) {
-		this.id = id;
-		this.username = username;
-		this.password = password;
-	}
 
 	public Long getId() {
 		return id;

@@ -82,12 +82,20 @@
 															value="Login Responsabile" />
 													</form>
 												</div></li>
-										<li><a th:href="@{/Utente/newAllievo}">Registra nuovo
+										<li><a th:if="${current_username}" 
+											sec:authorize="hasRole('ROLE_UTENTE')"
+										    th:href="@{/Utente/newAllievo}">Registra nuovo
 												allievo finanziere</a></li>
-										<li><a th:href="@{/Utente/newCorso}">Inserisci un
-												nuovo corso</a></li>
+										<li><a th:if="${current_username}" 
+											sec:authorize="hasRole('ROLE_ADMIN')"
+										    th:href="@{/Utente/newAllievo}">Registra nuovo
+												allievo finanziere</a></li>
 										<li><a th:if="${current_username}"
 											sec:authorize="hasRole('ROLE_UTENTE')"
+											th:href="@{/utente/} + ${current_username}">Visualizza e
+												gestisci le tue informazioni</a></li>
+										<li><a th:if="${current_username}"
+											sec:authorize="hasRole('ROLE_ADMIN')"
 											th:href="@{/utente/} + ${current_username}">Visualizza e
 												gestisci le tue informazioni</a></li>
 										<li class="text-error" th:text="${erroreNewAllievo}"></li>
