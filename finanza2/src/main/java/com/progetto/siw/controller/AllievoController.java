@@ -54,13 +54,6 @@ public class AllievoController {
 			RedirectAttributes redir,
 			Model model) {	
 		String nextPage = "form";
-
-		//		// Redirect se l'utente ha già registrato un atleta
-		//		if (atletaService.hasUtenteGestore(username)) {
-		//			redir.addFlashAttribute("erroreNewAtleta", "Hai già registrato il tuo profilo atleta, non puoi registrarne altri!");
-		//			nextPage = "redirect:/utente/" + username;
-		//		}
-
 		model.addAttribute("navAllievi", "active");
 		model.addAttribute("formAllievo",true);
 		model.addAttribute("elencoCentri", centroService.findAll());
@@ -68,7 +61,7 @@ public class AllievoController {
 	}
 
 	@PostMapping("/utente/newAllievo")
-	public String checkAtletaInfo(@Valid @ModelAttribute Allievo allievo, 
+	public String checkAllievoInfo(@Valid @ModelAttribute Allievo allievo, 
 			@RequestParam(defaultValue="") Long centroID, 
 			@SessionAttribute(name="current_username") String username,
 			BindingResult bindingResult, Model model) {

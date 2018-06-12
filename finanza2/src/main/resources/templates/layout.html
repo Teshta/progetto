@@ -73,29 +73,30 @@
 												th:class="${navAccesso}">Area Riservata</span><b
 												class="caret"></b> </a>
 											<ul class="dropdown-menu">
-												<!-- <li sec:authorize="!isAuthenticated()"> -->
-												<div class="actions" align="center">
-													<form th:action="@{/accedi}" method="get">
-														<input id="accedi" type="submit"
-															class="btn btn-succes btn-small"
-															value="Login Responsabile" />
-													</form>
-												</div>
+												<li>
+													<div class="actions" align="center">
+														<form th:action="@{/accedi}" method="get">
+															<input id="accedi" type="submit"
+																class="btn btn-succes btn-small"
+																value="Login Responsabile" />
+														</form>
+													</div>
+												</li>
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_UTENTE')"
 													th:href="@{/utente/newAllievo}">Registra nuovo allievo
 														finanziere</a></li>
-												<li><a th:if="${current_username}"
+												<!-- <li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_ADMIN')"
-													th:href="@{/utente/newAllievo}">Registra nuovo allievo
-														finanziere</a></li>
+													th:href="@{/admin/newAllievo}">Registra nuovo allievo
+														finanziere</a></li> -->
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_UTENTE')"
 													th:href="@{/utente/} + ${current_username}">Visualizza
 														e gestisci le tue informazioni</a></li>
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_ADMIN')"
-													th:href="@{/utente/} + ${current_username}">Visualizza
+													th:href="@{/admin/} + ${current_username}">Visualizza
 														e gestisci le tue informazioni</a></li>
 												<li class="text-error" th:text="${erroreNewAllievo}"></li>
 												<li class="text-error" th:text="${erroreNewCorso}"></li>
@@ -402,8 +403,8 @@
 	<div th:fragment="Copyright" id="copyright">
 		<div class="container">
 			<p>
-				&copy; 2010, creativeLabs. <a href="http://bootstrapmaster.com" 
-				alt="Bootstrap Themes">Bootstrap Themes</a> designed by
+				&copy; 2010, creativeLabs. <a href="http://bootstrapmaster.com"
+					alt="Bootstrap Themes">Bootstrap Themes</a> designed by
 				BootstrapMaster in Jamaica.
 			</p>
 		</div>

@@ -22,9 +22,7 @@ public class UtenteController {
 	
 	@Autowired
 	private UtenteService utenteService;
-	
-	@Autowired
-	private CentroService centroService;
+
 	
 	@RequestMapping("/accedi")
 	public String accedi(@Valid @ModelAttribute Utente utente, Model model) {
@@ -36,18 +34,15 @@ public class UtenteController {
 	public String mostraUtente(@PathVariable("username") String user, 
 			@SessionAttribute(name="current_username") String username, Model model){
 		Utente utente = utenteService.findByUsername(username);
-		
-//		if (utente.hasAtletaGestito()) {
-//			Atleta atleta = utente.getAtletaGestito();
-//			
-//			if (atleta.getSocieta()==null) {
-//				model.addAttribute("elencoCentri", centroService.findAll());
-//			} else if(!atleta.getRisultati().isEmpty()) {
-//				model.addAttribute("risultatiGareNonSvolte", risultatoService.getRisultatiGareNonSvolte(atleta.getRisultati()));
-//				model.addAttribute("risultatiGareSvolte", risultatoService.getRisultatiGareSvolte(atleta.getRisultati()));
-//			}
-//		}
-		
+		model.addAttribute("navAccesso", "active");
+		model.addAttribute(utente);
+		return "area_riservata";
+	}
+	
+	@GetMapping("/admin/{username}")
+	public String mostraAdmin(@PathVariable("username") String user, 
+			@SessionAttribute(name="current_username") String username, Model model){
+		Utente utente = utenteService.findByUsername(username);
 		model.addAttribute("navAccesso", "active");
 		model.addAttribute(utente);
 		return "area_riservata";
