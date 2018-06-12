@@ -76,15 +76,22 @@ SPAN.td {
 									<span th:if="${#fields.hasErrors('cognome')}">Errore:
 										campo obbligatorio</span>
 								</div>
-								<!-- <div class="clearfix">
+								
+								
+								
+								 <div class="clearfix">
 									<label for="dataNascita"><span>Data di Nascita*:</span></label>
 									<div class="input">
-										<input tabindex="3" id="dataNascita" name="dataNascita" type="datetime-local"
-											 th:field="*{dataNascita}" required="required" />
+										<input tabindex="3" id="dataNascita" name="dataNascita" type="date"
+											 th:field="*{data}" required="required" />
 									</div>
-									<span th:if="${#fields.hasErrors('dataNascita')}">Errore:
+									<span th:if="${#fields.hasErrors('data')}">Errore:
 										campo obbligatorio</span>
-								</div> -->
+								</div> 
+								
+								
+								
+								
 								<div class="clearfix">
 									<label for="luogoNascita"><span>Luogo di
 											Nascita*:</span></label>

@@ -19,7 +19,7 @@ import javax.persistence.UniqueConstraint;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="allievo", uniqueConstraints = @UniqueConstraint(columnNames={"nome","cognome","dataNascita"}))
+@Table(name="allievo", uniqueConstraints = @UniqueConstraint(columnNames={"nome","cognome","data"}))
 public class Allievo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -39,7 +39,7 @@ public class Allievo {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(nullable = false)
-	private LocalDate dataNascita;
+	private LocalDate data;
 
 	@Column(nullable = false)
 	private String luogoNascita;
@@ -106,11 +106,11 @@ public class Allievo {
 	}
 
 	public LocalDate getData() {
-		return dataNascita;
+		return data;
 	}
 
 	public void setData(LocalDate data) {
-		this.dataNascita = data;
+		this.data = data;
 	}
 
 	public String getLuogoNascita() {
