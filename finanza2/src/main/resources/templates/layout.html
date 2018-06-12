@@ -83,11 +83,11 @@
 												</div>
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_UTENTE')"
-													th:href="@{/Utente/newAllievo}">Registra nuovo allievo
+													th:href="@{/utente/newAllievo}">Registra nuovo allievo
 														finanziere</a></li>
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_ADMIN')"
-													th:href="@{/Utente/newAllievo}">Registra nuovo allievo
+													th:href="@{/utente/newAllievo}">Registra nuovo allievo
 														finanziere</a></li>
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_UTENTE')"
