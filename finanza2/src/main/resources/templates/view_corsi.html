@@ -41,7 +41,7 @@
 							<tr>
 								<th><b>Data</b></th>
 								<th><b>Nome dell'evento</b></th>
-								<th sec:authorize="hasRole('ROLE_ADMIN')">[Pannello Amministratore]</th>
+								<th sec:authorize="hasRole('ROLE_UTENTE')">[Pannello Amministratore]</th>
 							</tr>
 							<tr>
 								<td colspan="2"><hr /></td>
@@ -51,14 +51,14 @@
 								<td sec:authorize="hasRole('ROLE_UTENTE')" class="text-success">
 									<form th:action="@{/utente/iscriviACorso/} + ${corso.id}" method="post">
 										<div class="actions">
-											<input type="submit" value="Iscriviti" />
+											<input type="submit" value="Iscrivi" />
 										</div>
 									</form>
 								</td>
 								<td sec:authorize="hasRole('ROLE_ADMIN')">
 									<form th:action="@{/admin/deleteCorso/} + ${corso.id}" method="post">
 										<div class="actions">
-											<input type="submit" value="Elimina evento" />
+											<input type="submit" value="Elimina corso" />
 										</div>
 									</form>
 								</td>
