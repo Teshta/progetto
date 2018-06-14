@@ -4,11 +4,12 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.progetto.siw.model.Centro;
 import com.progetto.siw.repository.CentroRepository;
 
-
+@Transactional
 @Service
 public class CentroService {
 	
@@ -19,9 +20,13 @@ public class CentroService {
 		return this.centroRepository.findAll();
 	}
 	
-	public Optional<Centro> findById(Long id) {
-    	return this.centroRepository.findById(id);
-    }
+	public Centro findById(Long id) {
+		Optional<Centro> centro = this.centroRepository.findById(id);
+		if (centro.isPresent()) 
+			return centro.get();
+		else
+			return null;
+	}
 	
 	 public void deleteById(Long id) {
 	    	centroRepository.deleteById(id);

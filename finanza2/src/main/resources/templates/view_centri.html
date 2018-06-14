@@ -48,7 +48,7 @@
 						<h3 th:text="${centro.nome}"></h3>
 					</div>
 					<div class="clearfix">
-						<h4 th:text="'Responsabile: ' + ${centro.utente.nome} +' '+ ${centro.utente.cognome}"></h4>
+						<h4 th:text="'Responsabile: ' + ${centro.utente.username}"></h4>
 					</div>
 					<hr />
 					<table th:unless="${#lists.isEmpty(centro.allievi)}">

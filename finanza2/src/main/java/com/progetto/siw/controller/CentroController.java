@@ -30,7 +30,7 @@ public class CentroController {
 	
 	@GetMapping("/listCentri/{id}")
 	public String mostraCentri(@PathVariable("id") Long id, Model model){
-		Optional<Centro> centro= centroService.findById(id);
+		Centro centro= centroService.findById(id);
 		model.addAttribute("navCentri", "active");
 		model.addAttribute("elencoCentri", centroService.findAll());
 		model.addAttribute("centroPanel", true);

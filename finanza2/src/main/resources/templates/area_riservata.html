@@ -35,28 +35,11 @@
 			<!-- start: Row -->
 			<div class="row">
 				<!-- start: Pannello Utente-->
-				<div class="span4">
+				<div class="span5">
 					<div class="title">
 						<h3>
-							Pannello Responsabile <span sec:authentication="name"></span>
+							Pannello Responsabile<br><span sec:authentication="name"></span>
 						</h3>
-					</div>
-					<!-- start: Form Allievo -->
-					<div th:if="${formAllievo}" class="span5"></div>
-					<!-- end: Form AllievoFinanziere  -->
-					<!-- <div class="clearfix" th:object="${utente}">
-						<font size="3"> <span th:if="*{allievoGestito}"> Hai
-								registrato un nuovo allievo finanziere : <br /> <a
-								th:href="@{/allievo/} + ${utente.allievoGestito.id}"
-								th:text="${utente.allievoGestito.nome} +' '+ ${utente.allievoGestito.cognome}">
-							</a> <br /> <br />
-						</span>
-						</font> -->
-					<div th:if="${erroreNewAllievo}">
-						<hr />
-						<font size="3"><span class="text-error"
-							th:text="${erroreNewAllievo}"></span><br /> </font>
-						<hr />
 					</div>
 				</div>
 			</div>
@@ -89,14 +72,6 @@
 							<td th:text="${corso.dataSvolgimento}" align="center"></td>
 							<td th:text="${corso.nomeCorso}"></td>
 							<td th:text="${corso.orario}"></td>
-							<td sec:authorize="hasRole('ROLE_UTENTE')" class="text-success">
-								<form th:action="@{/utente/iscriviACorso/} + ${corso.id}"
-									method="post">
-									<div class="actions">
-										<input type="submit" value="Iscriviti" />
-									</div>
-								</form>
-							</td>
 							<td sec:authorize="hasRole('ROLE_ADMIN')">
 								<form th:action="@{/admin/deleteCorso/} + ${corso.id}"
 									method="post">
@@ -125,27 +100,14 @@
 							<th><b>Data di svolgimento</b></th>
 							<th><b>Nome del corso</b></th>
 							<th><b>Orario</b></th>
-							<th sec:authorize="hasRole('ROLE_ADMIN')">[Pannello
-								Amministratore]</th>
 						</tr>
 						<tr>
 							<td colspan="2"><hr /></td>
 						</tr>
 						<tr th:each="corso : ${corsiPassati}">
-							<td th:text="${corso.dataSvolgimento}" align="center"></td>
-							<td th:text="${corso.nomeCorso}"></td>
+							<td th:text="${corso.data}" align="center"></td>
+							<td th:text="${corso.nome}"></td>
 							<td th:text="${corso.orario}"></td>
-							<td th:if="${corso.completato}" class="text-success"><a
-								th:href="@{/classifiche/} + ${gara.id}">Visualizza i corsi
-									conclusi</a></td>
-							<td sec:authorize="hasRole('ROLE_ADMIN')">
-								<form th:action="@{/admin/deleteCorso/} + ${corso.id}"
-									method="post">
-									<div class="actions">
-										<input type="submit" value="Elimina corso" />
-									</div>
-								</form>
-							</td>
 						</tr>
 					</table>
 					<span th:if="${#lists.isEmpty(corsiPassati)}"><font size="3">Non

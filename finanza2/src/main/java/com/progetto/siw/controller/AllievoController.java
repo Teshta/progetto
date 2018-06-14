@@ -1,7 +1,5 @@
 package com.progetto.siw.controller;
 
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +33,7 @@ public class AllievoController {
 
 	@GetMapping("/allievo/{id}")
 	public String mostraAllievo(@PathVariable("id") Long id, Model model){
-		Optional<Allievo> allievo = allievoService.findById(id);
+		Allievo allievo = allievoService.findById(id);
 		model.addAttribute("navAllievi", "active");
 		model.addAttribute("allievo", allievo);
 		return "view_allievo";

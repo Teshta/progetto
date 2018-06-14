@@ -13,6 +13,7 @@ import com.progetto.siw.constant.Calcolatore;
 import com.progetto.siw.model.Corso;
 import com.progetto.siw.repository.CorsoRepository;
 
+@Transactional
 @Service
 public class CorsoService {
 	
@@ -72,12 +73,10 @@ public class CorsoService {
 		return false;
 	}
 	
-	@Transactional
 	public void deleteById(Long id) {
 		this.corsoRepository.deleteById(id);
 	}
 	
-	@Transactional
 	public void save(final Corso corso) {
 		this.corsoRepository.save(corso);
 	}

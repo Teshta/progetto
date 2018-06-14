@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.progetto.siw.model.Allievo;
 import com.progetto.siw.repository.AllievoRepository;
 
+@Transactional
 @Service
 public class AllievoService {
 	
@@ -24,9 +25,13 @@ public class AllievoService {
 		return (this.allievoRepository.findByNomeAndCognome(nome,cognome)!=null);	
 	}
 	
-	public Optional<Allievo> findById(Long id) {
-    	return this.allievoRepository.findById(id);
-    }
+	public Allievo findById(Long id) {
+		Optional<Allievo> allievo = this.allievoRepository.findById(id);
+		if (allievo.isPresent()) 
+			return allievo.get();
+		else
+			return null;
+	}
 	
 	public void deleteById(Long id) {
     	this.allievoRepository.deleteById(id);
@@ -41,7 +46,6 @@ public class AllievoService {
 			return false;
 	    }
 
-	@Transactional
 	public void save(final Allievo allievo) {				
 		this.allievoRepository.save(allievo);
 }

@@ -42,21 +42,21 @@
 						<h4 th:text="'Email: ' + ${allievo.email}"></h4>
 						<h4 th:text="'Telefono: ' + ${allievo.telefono}"></h4>
 						<h4 th:text="'Centro operativo: ' + ${allievo.centro}"></h4>
-						<h4 th:each="corso :${allievo.corsi}" th:text="'Corsi seguiti(da rifare): ' + ${atleta.societa.nome}"></h4>
+						<h4 th:each="corso :${allievo.corsi}" th:text="'Corsi seguiti(da rifare): ' + ${allievo.centro.nome}"></h4>
 						<h4 th:unless="${#lists.isEmpty(allievo.corsi)}">L'allievo non è ancora iscritto ad un corso.</h4>
 					</div>
 					<hr />
 					<div class="clearfix" sec:authorize="hasRole('ROLE_ADMIN')">
 						<hr />
 						[Pannello Amministratore]
-						<form th:action="@{/admin/deleteAtleta/} + ${atleta.id}" method="post">
+						<form th:action="@{/admin/deleteAllievo/} + ${allievo.id}" method="post">
 							<div class="input">
-								<input type="submit" value="Elimina atleta" />
+								<input type="submit" value="Elimina allievo" />
 							</div>
 						</form>
 					</div>
 				</div>
-				<!-- end: Profilo Atleta -->
+				<!-- end: Profilo Allievo -->
 				<!-- start: Riepilogo Info -->
 				<div class="span4" th:if="${successo}">
 					<div class="title">

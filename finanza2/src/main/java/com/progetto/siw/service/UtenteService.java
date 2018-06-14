@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.progetto.siw.model.Utente;
 import com.progetto.siw.repository.UtenteRepository;
 
+@Transactional
 @Service
 public class UtenteService{
 	
@@ -22,7 +23,6 @@ public class UtenteService{
 		return this.utenteRepository.findByUsername(username);
 	}
 	
-	@Transactional
 	public void save(final Utente utente) {		
 		utente.setPassword(bCryptPasswordEncoder.encode(utente.getPassword()));
 		utente.setEnabled(true);
