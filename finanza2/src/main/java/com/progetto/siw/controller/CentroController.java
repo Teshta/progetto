@@ -28,7 +28,7 @@ public class CentroController {
 		return "view_centri";
 	}
 	
-	@GetMapping("/listCentri/{id}")
+	@GetMapping("admin/listCentri/{id}")
 	public String mostraCentri(@PathVariable("id") Long id, Model model){
 		Centro centro= centroService.findById(id);
 		model.addAttribute("navCentri", "active");
