@@ -40,7 +40,8 @@
 						<table style="font-size: 3" th:unless="${#lists.isEmpty(corsiAperti)}">
 							<tr>
 								<th><b>Data</b></th>
-								<th><b>Nome del corso</b></th>
+								<th><b>Nome Corso</b></th>
+								<th><b>Centro</b></th>
 								<th sec:authorize="hasRole('ROLE_ADMIN')">[Pannello Amministratore]</th>
 							</tr>
 							<tr>
@@ -49,6 +50,7 @@
 							<tr th:each="corso : ${corsiAperti}">
 								<td th:text="${corso.data}" align="center"></td>
 								<td th:text="${corso.nome}" align="center"></td>
+								<td th:text="${corso.centroOperativo.nome}" align="center"></td>
 								<td sec:authorize="hasRole('ROLE_UTENTE')" class="text-success">
 									<form th:action="@{/utente/addAllievo/}" method="get">
 										<div class="actions">
@@ -81,7 +83,8 @@
 						<table style="font-size: 3" th:unless="${#lists.isEmpty(corsiPassati)}">
 							<tr>
 								<th><b>Data</b></th>
-								<th><b>Nome del corso</b></th>
+								<th><b>Nome Corso</b></th>
+								<th><b>Centro</b></th>
 								<th sec:authorize="hasRole('ROLE_ADMIN')">[Pannello Amministratore]</th>
 							</tr>
 							<tr>
@@ -90,6 +93,7 @@
 							<tr th:each="corso : ${corsiPassati}">
 								<td th:text="${corso.data}" align="center"></td>
 								<td th:text="${corso.nome}" align="center"></td>
+								<td th:text="${corso.centroOperativo.nome}" align="center"></td>
 								<td sec:authorize="hasRole('ROLE_ADMIN')">
 									<form th:action="@{/admin/deleteCorso/} + ${corso.id}" method="post">
 										<div class="actions">
