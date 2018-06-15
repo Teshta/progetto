@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.progetto.siw.constant.Calcolatore;
+import com.progetto.siw.model.Centro;
 import com.progetto.siw.model.Corso;
 import com.progetto.siw.repository.CorsoRepository;
 
@@ -29,6 +30,30 @@ public class CorsoService {
 		List<Corso> corsi = new LinkedList<>();
 		for(Corso g : elencoCorsi){
 			corsi.add(g);
+		}
+		Collections.sort(corsi);
+		return corsi;
+	}
+	
+	public List<Corso> getCorsiApertiByCentro(Centro centro){
+		Iterable<Corso> elencoCorsi = corsoRepository.findAll();
+		List<Corso> corsi = new LinkedList<>();
+		for(Corso g : elencoCorsi){
+			if (!Calcolatore.isDataPassata(g.getData()) && (!g.isCompletato()))
+				if(g.getCentroOperativo().equals(centro))
+					corsi.add(g);
+		}
+		Collections.sort(corsi);
+		return corsi;
+	}
+	
+	public List<Corso> getCorsiPassatiByCentro(Centro centro){
+		Iterable<Corso> elencoCorsi = corsoRepository.findAll();
+		List<Corso> corsi = new LinkedList<>();
+		for(Corso g : elencoCorsi){
+			if (Calcolatore.isDataPassata(g.getData()))
+				if(g.getCentroOperativo().equals(centro))
+					corsi.add(g);
 		}
 		Collections.sort(corsi);
 		return corsi;

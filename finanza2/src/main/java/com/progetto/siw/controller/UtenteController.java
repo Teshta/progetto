@@ -39,8 +39,8 @@ public class UtenteController {
 		Utente utente = utenteService.findByUsername(username);
 		model.addAttribute("navAccesso", "active");
 		model.addAttribute(utente);
-		model.addAttribute("corsiAperti", corsoService.getCorsiAperti());
-		model.addAttribute("corsiPassati", corsoService.getCorsiPassati());
+		model.addAttribute("corsiCentroAperti", corsoService.getCorsiApertiByCentro(utente.getCentro()));
+		model.addAttribute("corsiCentroPassati", corsoService.getCorsiPassatiByCentro(utente.getCentro()));
 		return "area_riservata";
 	}
 	

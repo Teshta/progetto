@@ -38,7 +38,8 @@
 				<div class="span5">
 					<div class="title">
 						<h3>
-							Pannello Responsabile<br><span sec:authentication="name"></span>
+							Pannello Responsabile<br>
+							<span sec:authentication="name"></span>
 						</h3>
 					</div>
 				</div>
@@ -57,7 +58,7 @@
 				</div>
 				<div class="clearfix">
 					<table style="font-size: 3"
-						th:unless="${#lists.isEmpty(corsiAperti)}">
+						th:unless="${#lists.isEmpty(corsiCentroAperti)}">
 						<tr>
 							<th><b>Data </b></th>
 							<th><b>Nome Corso</b></th>
@@ -65,11 +66,18 @@
 								Amministratore]</th>
 						</tr>
 						<tr>
-							<td colspan="2"><hr /></td>
+							<td colspan="5"><hr /></td>
 						</tr>
-						<tr th:each="corso: ${corsiAperti}">
+						<tr th:each="corso: ${corsiCentroAperti}">
 							<td th:text="${corso.data}" align="center"></td>
 							<td th:text="${corso.nome}"></td>
+							<td sec:authorize="hasRole('ROLE_UTENTE')" class="text-success">
+								<form th:action="@{/utente/addAllievo/}" method="get">
+									<div class="actions">
+										<input type="submit" value="Iscrivi" />
+									</div>
+								</form>
+							</td>
 							<td sec:authorize="hasRole('ROLE_ADMIN')">
 								<form th:action="@{/admin/deleteCorso/} + ${corso.id}"
 									method="post">
@@ -80,8 +88,8 @@
 							</td>
 						</tr>
 					</table>
-					<span th:if="${#lists.isEmpty(corsiAperti)}"><font size="3">Al
-							momento non ci sono corsi in programma.</font></span>
+					<span th:if="${#lists.isEmpty(corsiCentroAperti)}"><font
+						size="3">Al momento non ci sono corsi in programma.</font></span>
 				</div>
 			</div>
 			<!-- end: List Corsi in Programma -->
@@ -93,28 +101,35 @@
 				</div>
 				<div class="clearfix">
 					<table style="font-size: 3"
-						th:unless="${#lists.isEmpty(corsiPassati)}">
+						th:unless="${#lists.isEmpty(corsiCentroPassati)}">
 						<tr>
-							<th><b>Data</b></th>
+							<th><b>Data di svolgimento</b></th>
 							<th><b>Nome Corso</b></th>
 						</tr>
 						<tr>
 							<td colspan="2"><hr /></td>
 						</tr>
-						<tr th:each="corso : ${corsiPassati}">
+						<tr th:each="corso : ${corsiCentroPassati}">
 							<td th:text="${corso.data}" align="center"></td>
 							<td th:text="${corso.nome}"></td>
+							<td sec:authorize="hasRole('ROLE_ADMIN')">
+								<form th:action="@{/admin/deleteCorso/} + ${corso.id}"
+									method="post">
+									<div class="actions">
+										<input type="submit" value="Elimina corso" />
+									</div>
+								</form>
+							</td>
 						</tr>
 					</table>
-					<span th:if="${#lists.isEmpty(corsiPassati)}"><font size="3">Non
-							si sono ancora svolti corsi.</font></span>
+					<span th:if="${#lists.isEmpty(corsiCentroPassati)}"><font
+						size="3">Non si sono ancora svolti corsi.</font></span>
 				</div>
 			</div>
+			<!-- end: List Corsi svolti-->
+			<!-- end: Pannello Utente -->
 		</div>
-		<!-- end: List Corsi svolti-->
-		<!-- end: Pannello Utente -->
-	</div>
-	<!-- end: Container -->
+		<!-- end: Container -->
 	</div>
 	<!-- end: Wrapper  -->
 
