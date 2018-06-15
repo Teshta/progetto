@@ -37,11 +37,11 @@
 						<h3 th:text="${allievo.nome} +' '+ ${allievo.cognome}"></h3>
 					</div>
 					<div class="clearfix">
-						<h4 th:text="'Data di nascita: ' + ${allievo.dataNascita}"></h4>
+						<h4 th:text="'Data di nascita: ' + ${allievo.data}"></h4>
 						<h4 th:text="'Luogo di nascita: ' + ${allievo.luogoNascita}"></h4>
 						<h4 th:text="'Email: ' + ${allievo.email}"></h4>
 						<h4 th:text="'Telefono: ' + ${allievo.telefono}"></h4>
-						<h4 th:text="'Centro operativo: ' + ${allievo.centro}"></h4>
+						<h4 th:text="'Centro operativo: ' + ${allievo.centro.nome}"></h4>
 						<h4 th:each="corso :${allievo.corsi}" th:text="'Corsi seguiti(da rifare): ' + ${allievo.centro.nome}"></h4>
 						<h4 th:unless="${#lists.isEmpty(allievo.corsi)}">L'allievo non è ancora iscritto ad un corso.</h4>
 					</div>

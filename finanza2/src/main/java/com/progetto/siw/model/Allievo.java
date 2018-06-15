@@ -121,12 +121,12 @@ public class Allievo {
 		this.luogoNascita = luogoNascita;
 	}
 
-	public List<Corso> getCorso() {
+	public List<Corso> getCorsi() {
 		return corsi;
 	}
 
-	public void setCorso(List<Corso> corso) {
-		this.corsi = corso;
+	public void setCorsi(List<Corso> corsi) {
+		this.corsi = corsi;
 	}
 
 	public Centro getCentro() {

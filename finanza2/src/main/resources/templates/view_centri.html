@@ -64,6 +64,21 @@
 						</tr>
 					</table>
 					<span th:if="${#lists.isEmpty(centro.allievi)}">Questo centro non ha ancora allievi</span>
+					
+					<hr />
+					<table th:unless="${#lists.isEmpty(centro.corsi)}">
+						<tr>
+							<th align="left">Nome Corso</th>
+						</tr>
+						<tr>
+							<td colspan="2"><hr /></td>
+						</tr>
+						<tr th:each="corso : ${centro.corsi}">
+							<td><a th:href="@{/corso/} + ${corso.id}"
+								th:text="${corso.nome}"></a></td>
+						</tr>
+					</table>
+					<span th:if="${#lists.isEmpty(centro.corsi)}">Questo centro non ha ancora corsi</span>
 					<div class="clearfix" sec:authorize="hasRole('ROLE_ADMIN')">
 						<hr />
 						[Pannello Amministratore]
