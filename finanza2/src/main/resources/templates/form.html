@@ -162,6 +162,16 @@ SPAN.td {
 										obbligatorio</span>
 								</div>
 								<div class="clearfix">
+									<label for="centro"><span>Seleziona un Centro Operativo:</span></label>
+									<div class="input">
+										<select tabindex="7" id="centro" name="centroID">
+											<option value="">&lt;seleziona&gt;</option>
+											<option th:each="centro: ${elencoCentri}"
+												th:value="${centro.id}" th:text="${centro.nome}"></option>
+										</select>
+									</div>
+								</div>
+								<div class="clearfix">
 									<div class="actions">
 										<button tabindex="3" type="submit"
 											class="btn btn-succes btn-large">Conferma</button>

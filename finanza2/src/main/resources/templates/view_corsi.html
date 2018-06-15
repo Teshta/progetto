@@ -44,7 +44,7 @@
 								<th sec:authorize="hasRole('ROLE_ADMIN')">[Pannello Amministratore]</th>
 							</tr>
 							<tr>
-								<td colspan="2"><hr /></td>
+								<td colspan="5"><hr /></td>
 							</tr>
 							<tr th:each="corso : ${corsiAperti}">
 								<td th:text="${corso.data}" align="center"></td>
@@ -65,7 +65,7 @@
 								</td>
 							</tr>
 						</table>
-						<span th:if="${#lists.isEmpty(corsiPassati)}"><font size="3">Al momento non ci
+						<span th:if="${#lists.isEmpty(corsiAperti)}"><font size="3">Al momento non ci
 								sono corsi in programma.</font></span>
 					</div>
 				</div>

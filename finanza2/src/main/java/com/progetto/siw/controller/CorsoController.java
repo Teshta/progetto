@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.progetto.siw.constant.Calcolatore;
 import com.progetto.siw.model.Corso;
 import com.progetto.siw.model.Utente;
+import com.progetto.siw.service.CentroService;
 import com.progetto.siw.service.CorsoService;
 import com.progetto.siw.service.UtenteService;
 
@@ -30,6 +31,9 @@ public class CorsoController {
 	
 	@Autowired
 	private UtenteService utenteService;
+	
+	@Autowired
+	private CentroService centroService;
 
 	@GetMapping("/corsi")
 	public String mostraCorsiCompletati(Model model) {
@@ -43,11 +47,12 @@ public class CorsoController {
 	public String mostraForm(Corso corso, Model model) {
 		model.addAttribute("navCorsi", "active");
 		model.addAttribute("formCorso", true);
+		model.addAttribute("elencoCentri", centroService.findAll());
 		return "form";
 	}
 	
 	@PostMapping("/utente/newCorso")
-	public String checkCorsoInfo(@Valid @ModelAttribute Corso corso, BindingResult bindingResult, Model model) {
+	public String checkCorsoInfo(@Valid @ModelAttribute Corso corso,Long centroID, BindingResult bindingResult, Model model) {
 		String nextPage = "form";
 		model.addAttribute("navCorsi", "active");
 		model.addAttribute("formCorso", true);
@@ -59,7 +64,8 @@ public class CorsoController {
 				if (!corsoService.isDuplicateSameDate(corso)) {
 					/*Attributi manipolati*/
 					corso.setNome(corso.getNome().toUpperCase());
-
+					if (centroID!=null)
+						corso.setCentroOperativo(centroService.findById(centroID));  //col post assegno al corso un centro
 					corsoService.save(corso);
 
 					model.addAttribute(corso);
