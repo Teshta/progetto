@@ -221,7 +221,7 @@ SPAN.td {
 									<b>Telefono:</b> <span th:text="${allievo.telefono}"></span>
 								</h4>
 								<h4>
-									<b>Centro:</b> <span th:text="${allievo.centro}"></span>
+									<b>Centro:</b> <span th:text="${allievo.centro.nome}"></span>
 								</h4>
 							</div>
 							<div th:if="${formCentro}">
@@ -248,7 +248,10 @@ SPAN.td {
 									<b>Nome:</b> <span th:text="${corso.nome}"></span>
 								</h4>
 								<h4>
-									<b>Data di Svolgimento</b> <span th:text="${corso.data}"></span>
+									<b>Data di Svolgimento:</b> <span th:text="${corso.data}"></span>
+								</h4>
+								<h4>
+									<b>Centro associato:</b> <span th:text="${corso.centroOperativo.nome}"></span>
 								</h4>
 								<hr />
 								<h4>Ora gli allievi potranno essere iscritti al corso.</h4>

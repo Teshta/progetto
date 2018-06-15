@@ -77,7 +77,7 @@ public class AllievoController {
 
 				/* Relazioni */
 				if (centroID!=null)
-					allievo.setCorsi(corsoService.findById(centroID));
+					allievo.setCentro(centroService.findById(centroID));
 				else {
 					model.addAttribute("corsoNonSelezionato", true);
 				}
