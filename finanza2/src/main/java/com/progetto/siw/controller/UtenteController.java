@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.progetto.siw.model.Utente;
-import com.progetto.siw.service.CentroService;
+import com.progetto.siw.service.CorsoService;
 import com.progetto.siw.service.UtenteService;
 
 @Controller
@@ -22,6 +22,9 @@ public class UtenteController {
 	
 	@Autowired
 	private UtenteService utenteService;
+	
+	@Autowired
+	private CorsoService corsoService;
 
 	
 	@RequestMapping("/accedi")
@@ -36,6 +39,8 @@ public class UtenteController {
 		Utente utente = utenteService.findByUsername(username);
 		model.addAttribute("navAccesso", "active");
 		model.addAttribute(utente);
+		model.addAttribute("corsiAperti", corsoService.getCorsiAperti());
+		model.addAttribute("corsiPassati", corsoService.getCorsiPassati());
 		return "area_riservata";
 	}
 	

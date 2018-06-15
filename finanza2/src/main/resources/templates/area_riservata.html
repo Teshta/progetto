@@ -59,9 +59,8 @@
 					<table style="font-size: 3"
 						th:unless="${#lists.isEmpty(corsiAperti)}">
 						<tr>
-							<th><b>Data di svolgimento</b></th>
-							<th><b>Nome del corso</b></th>
-							<th><b>Orario</b></th>
+							<th><b>Data </b></th>
+							<th><b>Nome Corso</b></th>
 							<th sec:authorize="hasRole('ROLE_ADMIN')">[Pannello
 								Amministratore]</th>
 						</tr>
@@ -69,9 +68,8 @@
 							<td colspan="2"><hr /></td>
 						</tr>
 						<tr th:each="corso: ${corsiAperti}">
-							<td th:text="${corso.dataSvolgimento}" align="center"></td>
-							<td th:text="${corso.nomeCorso}"></td>
-							<td th:text="${corso.orario}"></td>
+							<td th:text="${corso.data}" align="center"></td>
+							<td th:text="${corso.nome}"></td>
 							<td sec:authorize="hasRole('ROLE_ADMIN')">
 								<form th:action="@{/admin/deleteCorso/} + ${corso.id}"
 									method="post">
@@ -97,9 +95,8 @@
 					<table style="font-size: 3"
 						th:unless="${#lists.isEmpty(corsiPassati)}">
 						<tr>
-							<th><b>Data di svolgimento</b></th>
-							<th><b>Nome del corso</b></th>
-							<th><b>Orario</b></th>
+							<th><b>Data</b></th>
+							<th><b>Nome Corso</b></th>
 						</tr>
 						<tr>
 							<td colspan="2"><hr /></td>
@@ -107,7 +104,6 @@
 						<tr th:each="corso : ${corsiPassati}">
 							<td th:text="${corso.data}" align="center"></td>
 							<td th:text="${corso.nome}"></td>
-							<td th:text="${corso.orario}"></td>
 						</tr>
 					</table>
 					<span th:if="${#lists.isEmpty(corsiPassati)}"><font size="3">Non
