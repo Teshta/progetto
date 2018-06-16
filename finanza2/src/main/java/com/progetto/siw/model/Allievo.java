@@ -44,7 +44,7 @@ public class Allievo {
 	@Column(nullable = false)
 	private String luogoNascita;
 
-	@ManyToMany(mappedBy = "allieviFinanzieri")
+	@ManyToMany(mappedBy = "allievi")
 	private List<Corso> corsi;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})

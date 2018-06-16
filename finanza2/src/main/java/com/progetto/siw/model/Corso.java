@@ -41,7 +41,7 @@ public class Corso implements Comparable<Corso>{
 	private Centro centroOperativo;
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private List<Allievo> allieviFinanzieri;
+	private List<Allievo> allievi;
 
 	public Corso() {
 		
@@ -103,12 +103,12 @@ public class Corso implements Comparable<Corso>{
 		this.centroOperativo = centroOperativo;
 	}
 
-	public List<Allievo> getAllieviFinanzieri() {
-		return allieviFinanzieri;
+	public List<Allievo> getAllievi() {
+		return allievi;
 	}
 
-	public void setAllieviFinanzieri(List<Allievo> allieviFinanzieri) {
-		this.allieviFinanzieri = allieviFinanzieri;
+	public void setAllievi(List<Allievo> allievi) {
+		this.allievi = allievi;
 	}
 
 	@Override

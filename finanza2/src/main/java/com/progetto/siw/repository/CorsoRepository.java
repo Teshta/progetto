@@ -1,6 +1,6 @@
 package com.progetto.siw.repository;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -12,5 +12,5 @@ public interface CorsoRepository extends CrudRepository<Corso, String> {
 
 	public void deleteById(Long id);
 
-	public List<Corso> findById(Long id);
+	public Optional<Corso> findById(Long id);
 }

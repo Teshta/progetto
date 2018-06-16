@@ -43,6 +43,16 @@ public class CorsoController {
 		return "view_corsi";
 	}
 	
+	@GetMapping("/corso/{id}")
+	public String mostraCorso(@PathVariable("id") Long id, Model model){
+		Corso corso = corsoService.findById(id);
+		model.addAttribute("navCorsi", "active");
+//		model.addAttribute("corsiAperti", corsoService.getCorsiAperti());
+		model.addAttribute("corsoPanel", true);
+		model.addAttribute("corso", corso);
+		return "view_corso";
+	}
+	
 	@GetMapping("/utente/newCorso")
 	public String mostraForm(Corso corso, Model model) {
 		model.addAttribute("navCorsi", "active");

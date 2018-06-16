@@ -1,7 +1,5 @@
 package com.progetto.siw.controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +20,7 @@ public class CentroController {
 	private CentroService centroService; 
 	
 	@GetMapping("/listCentri")
-	public String mostraListaSocieta(Model model) {
+	public String mostraListaCentri(Model model) {
 		model.addAttribute("navCentri", "active");
 		model.addAttribute("elencoCentri", centroService.findAll());
 		return "view_centri";

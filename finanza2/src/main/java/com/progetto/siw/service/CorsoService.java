@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -106,7 +107,11 @@ public class CorsoService {
 		this.corsoRepository.save(corso);
 	}
 
-	public List<Corso> findById(Long id) {
-		return this.corsoRepository.findById(id);
+	public Corso findById(Long id) {
+		Optional<Corso> corso = this.corsoRepository.findById(id);
+		if (corso.isPresent()) 
+			return corso.get();
+		else
+			return null;
 	}
 }

@@ -42,7 +42,6 @@
 								<th><b>Data</b></th>
 								<th><b>Nome Corso</b></th>
 								<th><b>Centro</b></th>
-								<th sec:authorize="hasRole('ROLE_ADMIN')">[Pannello Amministratore]</th>
 							</tr>
 							<tr>
 								<td colspan="5"><hr /></td>
@@ -51,13 +50,6 @@
 								<td th:text="${corso.data}" align="center"></td>
 								<td th:text="${corso.nome}" align="center"></td>
 								<td th:text="${corso.centroOperativo.nome}" align="center"></td>
-								<td sec:authorize="hasRole('ROLE_ADMIN')">
-									<form th:action="@{/admin/deleteCorso/} + ${corso.id}" method="post">
-										<div class="actions">
-											<input type="submit" value="Elimina corso" />
-										</div>
-									</form>
-								</td>
 							</tr>
 						</table>
 						<span th:if="${#lists.isEmpty(corsiAperti)}"><font size="3">Al momento non ci
@@ -78,22 +70,14 @@
 								<th><b>Data</b></th>
 								<th><b>Nome Corso</b></th>
 								<th><b>Centro</b></th>
-								<th sec:authorize="hasRole('ROLE_ADMIN')">[Pannello Amministratore]</th>
 							</tr>
 							<tr>
-								<td colspan="2"><hr /></td>
+								<td colspan="5"><hr /></td>
 							</tr>
 							<tr th:each="corso : ${corsiPassati}">
 								<td th:text="${corso.data}" align="center"></td>
 								<td th:text="${corso.nome}" align="center"></td>
 								<td th:text="${corso.centroOperativo.nome}" align="center"></td>
-								<td sec:authorize="hasRole('ROLE_ADMIN')">
-									<form th:action="@{/admin/deleteCorso/} + ${corso.id}" method="post">
-										<div class="actions">
-											<input type="submit" value="Elimina corso" />
-										</div>
-									</form>
-								</td>
 							</tr>
 						</table>
 						<span th:if="${#lists.isEmpty(corsiPassati)}"><font size="3">Non ci sono ancora
