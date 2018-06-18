@@ -773,7 +773,7 @@ dd {
 }
 
 hr {
-  margin: 20px 0;
+  margin: px 0;
   border: 0;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -2776,7 +2776,7 @@ table [class*=span],
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  background-color: silver;
+  background-color: #0060A0;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   *border-right-width: 2px;
@@ -2813,7 +2813,7 @@ table [class*=span],
   clear: both;
   font-weight: normal;
   line-height: 20px;
-  color: #333333;
+  color: #FFE118;
   white-space: nowrap;
 }
 

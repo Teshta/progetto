@@ -32,23 +32,23 @@
 			<!-- start: Row -->
 			<div class="row">
 				<!-- start: List allievi -->
-				<div class="span6">
+				<div class="span5">
 					<div class="title">
-						<h3>Lista degli allievi</h3>
+						<h3>Lista degli Allievi Finanzieri</h3>
 					</div>
 					<div class="clearfix">
 						<table style="font-size: 3" th:unless="${#lists.isEmpty(elencoAllievi)}">
 							<tr>
-								<th><b>Nome</b></th>
-								<th><b>Cognome</b></th>
-								<th><b>Email</b></th>
-								<th><b>Telefono</b></th>
-								<th><b>Data di Nascita</b></th>
-								<th><b>Luogo di Nascita</b></th>
+								<th width="100"><b>Nome</b></th>
+								<th width="100"><b>Cognome</b></th>
+								<th width="100"><b>Email</b></th>
+								<th width="100"><b>Telefono</b></th>
+								<th width="100"><b>Data di Nascita</b></th>
+								<th width="100"><b>Luogo di Nascita</b></th>
 								<th><b>Centro</b></th>
 							</tr>
 							<tr>
-								<td colspan="5"><hr /></td>
+								<td colspan="7"><hr /></td>
 							</tr>
 							<tr th:each="allievo : ${elencoAllievi}">
 								<td th:text="${allievo.nome}" align="center"></td>
@@ -60,7 +60,7 @@
 								<td th:text="${allievo.centro.nome}" align="center"></td>
 							</tr>
 						</table>
-						<span th:if="${#lists.isEmpty(elencoAllievi)}"><font size="3">Al momento non sono presenti allievi nel centro.</font></span>
+						<span th:if="${#lists.isEmpty(elencoAllievi)}"><font size="3">Al momento non sono presenti allievi nei Centri Operativi.</font></span>
 					</div>
 				</div>
 				<!-- end: List allievi -->

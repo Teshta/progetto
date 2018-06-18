@@ -392,7 +392,7 @@ html[xmlns] .slides {display: block;}
 
 .hero-unit {
 	background: silver url(../img/bg-k10.png);
-	border-left: 4px solid black;
+	border-left: 4px solid #0060A0;
 	padding: 13px 13px 13px 15px;
 	font-style: italic;
 	margin: 20px auto;

@@ -47,41 +47,41 @@
 					<div class="title">
 						<h3 th:text="${centro.nome}"></h3>
 					</div>
-					<div class="clearfix">
+					<div class="clearfix"><br>
 						<h4 th:text="'Responsabile: ' + ${centro.utente.username}"></h4>
 					</div>
-					<hr />
+					<hr width="300" />
 					<table th:unless="${#lists.isEmpty(centro.allievi)}">
-						<tr>
-							<th align="left">Nome e Cognome</th>
+						<tr><br><br>
+							<th align="left">Nome e Cognome Allievi</th>
 						</tr>
 						<tr>
-							<td colspan="2"><hr /></td>
+							<td><hr width="300" /></td>
 						</tr>
-						<tr th:each="allievo : ${centro.allievi}">
+						<tr align="left" th:each="allievo : ${centro.allievi}">
 							<td><a th:href="@{/allievo/} + ${allievo.id}"
 								th:text="${allievo.nome} +' '+ ${allievo.cognome}"></a></td>
 						</tr>
 					</table>
 					<span th:if="${#lists.isEmpty(centro.allievi)}">Questo centro non ha ancora allievi</span>
 					
-					<hr />
+					<hr width="300" />
 					<table th:unless="${#lists.isEmpty(centro.corsi)}">
 						<tr>
 							<th align="left">Nome Corso</th>
 						</tr>
 						<tr>
-							<td colspan="2"><hr /></td>
+							<td colspan="2"><hr width="300" /></td>
 						</tr>
-						<tr th:each="corso : ${centro.corsi}">
+						<tr align="left" th:each="corso : ${centro.corsi}">
 							<td><a th:href="@{/corso/} + ${corso.id}"
 								th:text="${corso.nome}"></a></td>
 						</tr>
 					</table>
 					<span th:if="${#lists.isEmpty(centro.corsi)}">Questo centro non ha ancora corsi</span>
 					<div class="clearfix" sec:authorize="hasRole('ROLE_ADMIN')">
-						<hr />
-						[Pannello Amministratore]
+						<hr  width="300"/>
+						[Pannello Direttore Generale]
 						<form th:action="@{/admin/deleteCentro/} + ${centro.id}" method="post">
 							<div class="input">
 								<input type="submit" value="Elimina centro" />
