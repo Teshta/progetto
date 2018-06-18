@@ -19,10 +19,10 @@ public class Utente {
 
 	@Column(unique = true)
 	private String username;
-	
+
 	@Column(nullable = false)
 	private String password;
-	
+
 	@NotNull
 	@Column(nullable = false)
 	private boolean enabled;
@@ -53,11 +53,11 @@ public class Utente {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public boolean isEnabled(){
 		return enabled;
 	}
-	
+
 	public void setEnabled(boolean enabled){
 		this.enabled = enabled;
 	}
@@ -69,9 +69,46 @@ public class Utente {
 	public void setCentro(Centro centro) {
 		this.centro = centro;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Utente [id=" + id + ", username=" + username + ", password=" + password + ", Centro=" + centro + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((centro == null) ? 0 : centro.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Utente other = (Utente) obj;
+		if (centro == null) {
+			if (other.centro != null)
+				return false;
+		} else if (!centro.equals(other.centro))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
 	}
 }

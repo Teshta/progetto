@@ -40,14 +40,14 @@ public class Centro {
 
 	@OneToMany(mappedBy = "centroOperativo")
 	private List<Corso> corsi;
-	
+
 	@OneToMany(mappedBy = "centro", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REMOVE})
 	private List<Allievo> allievi;
 
 	public Centro() {
-		
+
 	}
-	
+
 	public Centro(Long id, String nome, String indirizzo, String email, int telefono, int capMaxAllievi) {
 		this.id = id;
 		this.nome = nome;
@@ -129,5 +129,57 @@ public class Centro {
 
 	public void setAllievi(List<Allievo> allievi) {
 		this.allievi = allievi;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((indirizzo == null) ? 0 : indirizzo.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + telefono;
+		result = prime * result + ((utente == null) ? 0 : utente.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Centro other = (Centro) obj;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (indirizzo == null) {
+			if (other.indirizzo != null)
+				return false;
+		} else if (!indirizzo.equals(other.indirizzo))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (telefono != other.telefono)
+			return false;
+		if (utente == null) {
+			if (other.utente != null)
+				return false;
+		} else if (!utente.equals(other.utente))
+			return false;
+		return true;
 	}
 }

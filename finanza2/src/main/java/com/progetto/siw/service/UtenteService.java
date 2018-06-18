@@ -1,5 +1,7 @@
 package com.progetto.siw.service;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,17 @@ public class UtenteService{
 		utente.setEnabled(true);
 		
 		this.utenteRepository.save(utente);
+	}
+	
+	public Utente findById(Long id) {
+		Optional<Utente> utente = this.utenteRepository.findById(id);
+		if (utente.isPresent()) 
+			return utente.get();
+		else
+			return null;
+	}
+	
+	public Iterable<Utente> findAll() {
+		return utenteRepository.findAll();
 	}
 }

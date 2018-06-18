@@ -65,6 +65,9 @@
 											<ul class="dropdown-menu">
 												<li><a th:href="@{/listCentri}">Visualizza l'elenco
 														dei Centri Operativi</a></li>
+												<li><a th:if="${current_username}"
+													sec:authorize="hasRole('ROLE_ADMIN')"
+													th:href="@{/admin/newCentro}">Registra nuovo centro operativo</a></li>
 											</ul></li>
 
 										<!--  Area Riservata -->
