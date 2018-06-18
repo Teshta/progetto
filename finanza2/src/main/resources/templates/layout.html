@@ -54,7 +54,7 @@
 												<li><a th:href="@{/corsi}">Visualizza tutti i corsi
 														presenti</a></li>
 												<li><a sec:authorize="hasRole('ROLE_UTENTE')"
-													th:href="@{/utente/newCorso}">Registra nuovo corso </a></li>
+													th:href="@{/utente/newCorso}">Registra nuovo Corso </a></li>
 											</ul></li>
 
 										<!--  Centri -->
@@ -84,8 +84,8 @@
 												</li>
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_UTENTE')"
-													th:href="@{/utente/newAllievo}">Registra nuovo allievo
-														finanziere</a></li>
+													th:href="@{/utente/newAllievo}">Registra nuovo Allievo
+														Finanziere</a></li>
 												<!-- <li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_ADMIN')"
 													th:href="@{/admin/newAllievo}">Registra nuovo allievo

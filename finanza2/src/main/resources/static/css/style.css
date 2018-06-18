@@ -25,7 +25,7 @@
 
 body {
 	font-family: 'Droid Sans';
-	font-size: 12px;
+	font-size: 14px;
 	color: black;
 }
 
@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .title h1, .title h2, .title h3, .title h4, .title h5, .title h6 {
-	border-bottom: 5px double black !important;
+	border-bottom: 5px double #0080C0 !important;
 	margin-bottom: -4px !important;
 	display: inline-block !important;
 	padding: 0px 10px !important;
@@ -109,7 +109,7 @@ header {
 
 .navbar .nav > li > a {
 	color: black;
-	border-top:4px solid black;
+	border-top:4px solid #FFE118;
 	text-shadow: none;
 	font-size: 16px;
 	padding: 20px;
@@ -118,7 +118,7 @@ header {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-	border-top:4px solid black;
+	border-top:4px solid #FFE118;
   	background: silver!important;		
   	color: black;
 }
@@ -128,7 +128,7 @@ header {
 .navbar .nav > .active > a:focus {
   	color: black;
   	text-decoration: none;
-	border-top:4px solid black;
+	border-top:4px solid #FFE118;
   	background-color: silver !important;	
   	-webkit-box-shadow: none;
        -moz-box-shadow: none;

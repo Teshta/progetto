@@ -36,14 +36,14 @@
 					<div class="title">
 						<h3>Lista dei Centri Operativi</h3>
 					</div>
-					<ul>
+					<ul><br>
 								<li th:each="centro: ${elencoCentri}"><a th:href="@{admin/listCentri/} + ${centro.id}"
 									th:text="${centro.nome}"></a></li>
 					</ul>
 				</div>
 				<!-- end: List Centri -->
 				<!-- start: Centro Panel -->
-				<div class="span5" th:if="${centroPanel}">
+				<div class="span4" th:if="${centroPanel}">
 					<div class="title">
 						<h3 th:text="${centro.nome}"></h3>
 					</div>

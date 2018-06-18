@@ -252,11 +252,11 @@ a:hover {
 }
 
 .span6 {
-  width: 940px;
+  width: 950px;
 }
 
 .span5 {
-  width: 380px;
+  width: 1000px;
 }
 
 .span4 {
@@ -931,9 +931,9 @@ input,
 button,
 select,
 textarea {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
-  line-height: 20px;
+  line-height: 15px;
 }
 
 input,
@@ -1827,6 +1827,7 @@ table {
   background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
+  text-align: center;
 }
 
 .table {
@@ -1838,7 +1839,7 @@ table {
 .table td {
   padding: 8px;
   line-height: 20px;
-  text-align: left;
+  text-align: center;
   vertical-align: top;
   border-top: 1px solid #dddddd;
 }
@@ -4560,7 +4561,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inverse {
-  color: #999999;
+  color: #FFE118;
 }
 
 .navbar-inverse .navbar-inner {
@@ -4620,15 +4621,15 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inverse .nav li.dropdown > .dropdown-toggle .caret {
-  border-top-color: #999999;
+  border-top-color: #FFE118;
   border-bottom-color: #999999;
 }
 
 .navbar-inverse .nav li.dropdown.open > .dropdown-toggle .caret,
 .navbar-inverse .nav li.dropdown.active > .dropdown-toggle .caret,
 .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle .caret {
-  border-top-color: #ffffff;
-  border-bottom-color: #ffffff;
+  border-top-color: #FFE118;
+  border-bottom-color: #FFE118;
 }
 
 .navbar-inverse .navbar-search .search-query {
