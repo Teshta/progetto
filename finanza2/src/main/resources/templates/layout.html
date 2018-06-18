@@ -86,10 +86,9 @@
 													sec:authorize="hasRole('ROLE_UTENTE')"
 													th:href="@{/utente/newAllievo}">Registra nuovo Allievo
 														Finanziere</a></li>
-												<!-- <li><a th:if="${current_username}"
+												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_ADMIN')"
-													th:href="@{/admin/newAllievo}">Registra nuovo allievo
-														finanziere</a></li> -->
+													th:href="@{/admin/allievi}">Elenco allievi finanzieri</a></li>
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_UTENTE')"
 													th:href="@{/utente/} + ${current_username}">Visualizza

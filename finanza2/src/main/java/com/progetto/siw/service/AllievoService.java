@@ -13,7 +13,7 @@ import com.progetto.siw.repository.AllievoRepository;
 @Transactional
 @Service
 public class AllievoService {
-	
+
 	@Autowired
 	private AllievoRepository allievoRepository;
 
@@ -24,7 +24,7 @@ public class AllievoService {
 	public boolean alreadyExists(String nome,String cognome) {
 		return (this.allievoRepository.findByNomeAndCognome(nome,cognome)!=null);	
 	}
-	
+
 	public Allievo findById(Long id) {
 		Optional<Allievo> allievo = this.allievoRepository.findById(id);
 		if (allievo.isPresent()) 
@@ -32,21 +32,25 @@ public class AllievoService {
 		else
 			return null;
 	}
-	
+
 	public void deleteById(Long id) {
-    	this.allievoRepository.deleteById(id);
-    }
-	
-	 public boolean isDuplicate(final Allievo allievo) {
-			List<Allievo> allievi = this.allievoRepository.findByNomeAndCognome(allievo.getNome(),allievo.getCognome());
-			for (Allievo a : allievi) {
-				if (a.getNome().equals(allievo.getNome()) && a.getData().equals(allievo.getData()))
-					return true;
-			}
-			return false;
-	    }
+		this.allievoRepository.deleteById(id);
+	}
+
+	public boolean isDuplicate(final Allievo allievo) {
+		List<Allievo> allievi = this.allievoRepository.findByNomeAndCognome(allievo.getNome(),allievo.getCognome());
+		for (Allievo a : allievi) {
+			if (a.getNome().equals(allievo.getNome()) && a.getData().equals(allievo.getData()))
+				return true;
+		}
+		return false;
+	}
 
 	public void save(final Allievo allievo) {				
 		this.allievoRepository.save(allievo);
-}
+	}
+
+	public Iterable<Allievo> findAll() {
+		return this.allievoRepository.findAll();
+	}
 }

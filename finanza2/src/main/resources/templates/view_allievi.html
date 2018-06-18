@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<!-- start: Meta -->
+<meta charset="utf-8" />
+<title>Lista Corsi</title>
+<meta name="description" content="GotYa Free Bootstrap Theme" />
+<meta name="keywords" content="Template, Theme, web, html5, css3, Bootstrap" />
+<!-- <meta name="author" content="Łukasz Holeczek from creativeLabs" /> -->
+<!-- end: Meta -->
+
+<!-- start: CSS -->
+<link href="/css/bootstrap.css" rel="stylesheet" />
+<link href="/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo" />
+<link rel="stylesheet" type="text/css"
+	href="http://fonts.googleapis.com/css?family=Economica:700,400italic" />
+<!-- end: CSS -->
+</head>
+<body>
+	<header th:include="layout :: Header"></header>
+
+	<!-- start: Wrapper -->
+	<div id="wrapper">
+		<!-- start: Container -->
+		<div class="container">
+			<!-- start: Row -->
+			<div class="row">
+				<!-- start: List allievi -->
+				<div class="span6">
+					<div class="title">
+						<h3>Lista degli allievi</h3>
+					</div>
+					<div class="clearfix">
+						<table style="font-size: 3" th:unless="${#lists.isEmpty(elencoAllievi)}">
+							<tr>
+								<th><b>Nome</b></th>
+								<th><b>Cognome</b></th>
+								<th><b>Email</b></th>
+								<th><b>Telefono</b></th>
+								<th><b>Data di Nascita</b></th>
+								<th><b>Luogo di Nascita</b></th>
+								<th><b>Centro</b></th>
+							</tr>
+							<tr>
+								<td colspan="5"><hr /></td>
+							</tr>
+							<tr th:each="allievo : ${elencoAllievi}">
+								<td th:text="${allievo.nome}" align="center"></td>
+								<td th:text="${allievo.cognome}" align="center"></td>
+								<td th:text="${allievo.email}" align="center"></td>
+								<td th:text="${allievo.telefono}" align="center"></td>
+								<td th:text="${allievo.data}" align="center"></td>
+								<td th:text="${allievo.luogoNascita}" align="center"></td>
+								<td th:text="${allievo.centro.nome}" align="center"></td>
+							</tr>
+						</table>
+						<span th:if="${#lists.isEmpty(elencoAllievi)}"><font size="3">Al momento non sono presenti allievi nel centro.</font></span>
+					</div>
+				</div>
+				<!-- end: List allievi -->
+
+				<!-- start: Riepilogo Info -->
+				<div class="span4" th:if="${successo} or ${errore}">
+					<div class="title">
+						<h3>Riepilogo Informazioni</h3>
+					</div>
+					<div class="span4">
+						<font size="3"> <span class="text-success" th:text="${successo}"></span><br /> <span
+							class="text-error" th:text="${errore}"></span><br />
+						</font>
+					</div>
+				</div>
+				<!-- end: Riepilogo Info -->
+			</div>
+			<!-- end: Row -->
+		</div>
+		<!-- end: Container -->
+	</div>
+	<!-- end: Wrapper  -->
+	<div th:include="layout :: javascript"></div>
+</body>
+</html>

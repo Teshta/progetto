@@ -29,9 +29,6 @@ public class Utente {
 
 	@OneToOne(mappedBy = "utente")
 	private Centro centro;
-	
-	@OneToOne
-	private Finanza finanza;
 
 	public Long getId() {
 		return id;
@@ -71,14 +68,6 @@ public class Utente {
 
 	public void setCentro(Centro centro) {
 		this.centro = centro;
-	}
-
-	public Finanza getFinanza() {
-		return finanza;
-	}
-
-	public void setFinanza(Finanza finanza) {
-		this.finanza = finanza;
 	}
 	
 	@Override

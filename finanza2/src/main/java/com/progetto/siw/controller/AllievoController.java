@@ -47,6 +47,13 @@ public class AllievoController {
 		redir.addFlashAttribute("successo", "L'allievo è stato rimosso dal sistema");
 		return "redirect:/";
 	}
+	
+	@GetMapping("admin/allievi")
+	public String mostraCorsiCompletati(Model model) {
+		model.addAttribute("navAllievi", "active");
+		model.addAttribute("elencoAllievi", allievoService.findAll());
+		return "view_allievi";
+	}
 
 	@GetMapping("/utente/newAllievo")
 	public String mostraForm(Allievo allievo, 
