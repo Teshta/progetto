@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.progetto.siw.constant.Calcolatore;
 import com.progetto.siw.model.Allievo;
 import com.progetto.siw.service.AllievoService;
 import com.progetto.siw.service.CentroService;
@@ -27,7 +28,7 @@ public class AllievoController {
 
 	@Autowired
 	CentroService centroService;
-	
+
 	@Autowired
 	CorsoService corsoService;
 
@@ -69,29 +70,31 @@ public class AllievoController {
 
 		if (!bindingResult.hasErrors()) {
 			// controllo età minima
+			if (Calcolatore.convalidaEtaAllievo(allievo.getData())) {
+				if (!allievoService.isDuplicate(allievo)) {
+					/* Attributi manipolati */
+					allievo.setNome(allievo.getNome().toUpperCase());
+					allievo.setCognome(allievo.getCognome().toUpperCase());
 
-			if (!allievoService.isDuplicate(allievo)) {
-				/* Attributi manipolati */
-				allievo.setNome(allievo.getNome().toUpperCase());
-				allievo.setCognome(allievo.getCognome().toUpperCase());
 
-				/* Relazioni */
-				if (centroID!=null)
-					allievo.setCentro(centroService.findById(centroID));
-				else {
-					model.addAttribute("corsoNonSelezionato", true);
+					/* Relazioni */
+					if (centroID!=null)
+						allievo.setCentro(centroService.findById(centroID));
+					else {
+						model.addAttribute("centroNonSelezionato", true);
+					}
+					// Service
+					allievoService.save(allievo);
+
+					model.addAttribute(allievo);
+					model.addAttribute("successo", "Allievo registrato correttamente");
+				} else {
+					model.addAttribute("errore", "L'allievo è già presente nel sistema");
 				}
-
-				// Service
-				allievoService.save(allievo);
-
-				model.addAttribute(allievo);
-				model.addAttribute("successo", "Allievo registrato correttamente");
-			} else {
-				model.addAttribute("errore", "L'allievo è già presente nel sistema");
-			}
+			} else
+				model.addAttribute("errore", "La data di nascita è errata");
 		}
-		model.addAttribute("elencoCorsi", corsoService.findAll());
+		model.addAttribute("elencoCentri", centroService.findAll());
 		return nextPage;
 	}
 }
