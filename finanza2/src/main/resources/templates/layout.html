@@ -91,7 +91,7 @@
 														Finanziere</a></li>
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_ADMIN')"
-													th:href="@{/admin/allievi}">Elenco allievi finanzieri</a></li>
+													th:href="@{/admin/allievi}">Elenco Allievi Finanzieri</a></li>
 												<li><a th:if="${current_username}"
 													sec:authorize="hasRole('ROLE_UTENTE')"
 													th:href="@{/utente/} + ${current_username}">Visualizza

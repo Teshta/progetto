@@ -203,14 +203,14 @@ SPAN.td {
 				<!-- start: Form Centro -->
 				<div th:if="${formCentro}" class="span5">
 					<div class="title">
-						<h3>Registrazione Centro</h3>
+						<h3>Registrazione Centro Operativo</h3>
 					</div>
 					<div id="contact-form">
 						<form action="#" th:action="@{/admin/newCentro}"
 							th:object="${centro}" method="post">
 							<fieldset>
 								<div class="clearfix">
-									<label for="nome"><span>Nome del centro:</span></label>
+									<label for="nome"><span>Nome del Centro Operativo:</span></label>
 									<div class="input">
 										<input tabindex="1" size="50" id="nome" name="nome"
 											type="text" th:value="*{nome}" required="required" />
