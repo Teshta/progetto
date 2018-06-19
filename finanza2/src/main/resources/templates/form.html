@@ -165,11 +165,20 @@ SPAN.td {
 									<span th:if="${#fields.hasErrors('data')}">Errore: campo
 										obbligatorio</span>
 								</div>
+								<!-- <div class="clearfix">
+									<label for="orario"><span>Orario:</span></label>
+									<div class="input">
+										<input tabindex="3" id="orario" name="orario" type="time"
+											th:field="*{orario}" required="required" />
+									</div>
+									<span th:if="${#fields.hasErrors('orario')}">Errore: campo
+										obbligatorio</span>
+								</div> -->
 								<div class="clearfix">
 									<label for="centro"><span>Seleziona un Centro
 											Operativo:</span></label>
 									<div class="input">
-										<select tabindex="7" id="centro" name="centroID"
+										<select tabindex="4" id="centro" name="centroID"
 											required="required">
 											<option value="">&lt;seleziona&gt;</option>
 											<option th:each="centro: ${elencoCentri}"
@@ -336,6 +345,9 @@ SPAN.td {
 								<h4>
 									<b>Data di Svolgimento:</b> <span th:text="${corso.data}"></span>
 								</h4>
+								<!-- <h4>
+									<b>Orario:</b> <span th:text="${corso.orario}"></span>
+								</h4> -->
 								<h4>
 									<b>Centro associato:</b> <span
 										th:text="${corso.centroOperativo.nome}"></span>
