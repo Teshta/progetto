@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Centro {
+public class Centro implements Comparable<Centro> {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -181,5 +181,10 @@ public class Centro {
 		} else if (!utente.equals(other.utente))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Centro o) {
+		return this.getNome().compareTo(o.getNome());
 	}
 }

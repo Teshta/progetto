@@ -1,5 +1,8 @@
 package com.progetto.siw.service;
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -42,5 +45,16 @@ public class UtenteService{
 	
 	public Iterable<Utente> findAll() {
 		return utenteRepository.findAll();
+	}
+	
+	public List<Utente> utentiSenzaCentro(){
+		Iterable<Utente> elencoUtenti = utenteRepository.findAll();
+		List<Utente> utentiSenzaCentro = new LinkedList<>();
+		for(Utente u : elencoUtenti){
+			if (u.getCentro() == null)
+					utentiSenzaCentro.add(u);
+		}
+		Collections.sort(utentiSenzaCentro);
+		return utentiSenzaCentro;
 	}
 }

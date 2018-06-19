@@ -48,7 +48,7 @@ public class CentroController {
 	public String mostraForm(Centro centro, Model model) {
 		model.addAttribute("navCentri", "active");
 		model.addAttribute("formCentro", true);
-		model.addAttribute("elencoUtenti", utenteService.findAll());
+		model.addAttribute("elencoUtenti", utenteService.utentiSenzaCentro());
 		return "form";
 	}
 	
@@ -57,7 +57,7 @@ public class CentroController {
 		String nextPage = "form";
 		model.addAttribute("navCentri", "active");
 		model.addAttribute("formCentro", true);
-		model.addAttribute("elencoUtenti", utenteService.findAll());
+		model.addAttribute("elencoUtenti", utenteService.utentiSenzaCentro());
 
 		if (!bindingResult.hasErrors()) {
 				// controllo corso esistente nello stesso giorno

@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="utenti")
-public class Utente {
+public class Utente implements Comparable<Utente> {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -110,5 +110,10 @@ public class Utente {
 		} else if (!username.equals(other.username))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Utente o) {
+		return this.getCentro().compareTo(o.getCentro());
 	}
 }
