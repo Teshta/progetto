@@ -1,7 +1,8 @@
 # Progetto
-Progetto di esame giugno 2018:   [Testa Damiano,Riccardo Bianchini]
+Progetto di esame giugno 2018:   [Testa Damiano,Bianchini Riccardo]
 
-Il progetto blabla...
+Il progetto relativo la gestione di molteplici funzioni interne ad un'azienda, da noi plasmato in
+un ambito più preciso come la Guardia di Finanza...
 
 Le specifiche seguite per lo sviluppo del SIW sono in linea con quelle per il progetto AVANZATO per l'appello di Giugno 2018;
 Le tecnologie implementate sono:
@@ -16,71 +17,72 @@ Informazioni e regole di dominio:
 
 Casi d'uso:
 
-  UC1: Registrazione allievo
-  Attore Primario: responsabile
+  UC1: Registrazione Centro Operativo	
+  Attore Primario: Direttore Generale
     
     Scenario principale di successo:
-    1. Il responsabile accede alla pagina registrazione;
-    2. inserisce i dati dell'allievo;
-      2.1 Se i dati dell'allievo sono già presenti nel sistema, il sistema mostra i dati e la scritta "Allievo già registrato";
-    3. Se i dati dell'allievo non sono presenti nel sistema, il responsabile compila i campi relativi alla registrazione ed il sistema
-      registra l'allievo nel centro.
-    
-    
-  UC2: Registrazione allievo attività
-  Attore Primario: responsabile
+    1. Il direttore generale accede alla pagina "Registra un nuovo Centro Operativo";
+    2. Il direttore generale compila i campi relativi all'inserimento di un nuovo centro operativo;
+       2.1 Se i dati relativi il nuovo centro operativo sono già presenti nel sistema visualizzerà "Centro Operativo già esistente";
+       2.2 Se i dati relativi il nuovo centro operativo non sono già presenti nel sistema, il sistema mostrerà un riepilogo dati inseriti;
+     3. Il sistema verificherà la correttezza dei dati ed aggiungerà il nuovo centro operativo.
+     
+  UC2: Registrazione Allievo Finanziere
+  Attore Primario: Responsabile Ufficiale
     
     Scenario principale di successo:
-    1. Il responsabile accede alla pagina "CentroX Visualizza tutte le attività";
-      1.1 Il sistema mostra l'elenco delle attività disponibili (con data di svolgimento posteriore a quella odierna), affianco a         ciascuna delle quali è presente un bottone per iscriversi;
-      1.2 Il sistema mostra inoltre anche l'elenco delle attività passate (con data di svolgimento anteriore a quella odierna);
-    2.  L'allievo decide l'attività da seguire;
-      2.1 Il responsabile preme il bottone "iscriviti" relativo all'attività scelta dall'allievo;
-    3. Il responsabile compila i campi obbligatori affinchè avvenga la registrazione;
-      3.1 Qualora l'allievo non fosse iscritto al centro richiesto verrà proposta una nuova iscrizione relativa al centro interessato;
-    4. Il sistema registra l'allievo e collega l'allievo all'attività;
-    5. L'allievo comprarià nella lista degli iscritti all'attività richiesta.
+    1. Il responsabile ufficiale accede alla pagina "Registra nuovo Allievo Finanziere";
+      2. Il responsabile ufficiale compila i campi relativi all'inserimento di un nuovo allievo finanziere;
+       2.1 Se i dati relativi il nuovo allievo finanziere sono già presenti nel sistema visualizzerà "Allievo Finanziere già esistente";
+       2.2 Se i dati relativi il nuovo allievo finanziere non sono già presenti nel sistema, il sistema mostrerà un riepilogo dati inseriti;
+     3. Il sistema verificherà la correttezza dei dati ed aggiungerà il nuovo allievo finanziere.
     
-   UC3: Consultazione Attività
+   UC3: Consultazione Corsi
    Attore Primario: qualsiasi visitatore del sito
    
     Scenario principale di successo:
-    1. Il visitatore accede alla pagina "Attività del giorno (campo da inserire)" e clicca sul bottone "cerca";
-      1.1 Il sistema mostra tutte le attività svolte nella giornata indicata;
-    2. Il visitatore può ordinare le attività per(nome, ora, ecc.)
-    3. Il sistema restituisce tutte le attività ordinate.
+    1. Il visitatore accede alla pagina "Corsi" -> "visualizza tutti i corsi presenti";
+    2. Il sistema mostrerà due tipologie di liste relative ad i corsi presenti;
+     2.1 mostrerà una lista relativa ai corsi che dovranno essere svolti ed un'altra in cui 
+     saranno visibili tutti i corsi già svolti;
+    3. saranno inoltre messe a disposizione dal sistema diverse informazioni aggiuntive oltre
+    al nome del corso, la data ed il centro associato.
    
-   UC4: Aggiungi nuova attività
-   Attore Primario: responsabile
+   UC4: Registrazione nuovo Corso
+   Attore Primario: Responsabile Ufficiale
    
      Scenario principale di successo:
-     1. Il responsabile accede alla pagina "Inserisci attività";
-     2. Il responsabile compila i campi relativi all'inserimento di una nuova attività;
-       2.1 Se i dati relativi all'attività sono già presenti nel sistema visualizzerà "Attività già esistente";
-       2.2 Se i dati relativi all'attività non sono già presenti nel sistema, il sistema mostra riepilogo dati inseriti ed eventuale
-       conferma;
-     3. Il sistema verifica la correttezza dei dati ed aggiunge l'attività.
+     1. Il responsabile ufficiale accede alla pagina "Registra nuovo Corso";
+     2. Il responsabile ufficiale compila i campi relativi all'inserimento di un nuovo corso;
+       2.1 Se i dati relativi al corso sono già presenti nel sistema visualizzerà "Corso già esistente";
+       2.2 Se i dati relativi al corso non sono già presenti nel sistema, il sistema mostrerà un riepilogo dati inseriti;
+     3. Il sistema verificherà la correttezza dei dati ed aggiungerà il corso.
      
-   UC5: Consultazione Allievo
-   Attore Primario: responsabile azienda
+   UC5: Consultazione Allievo Finanziere
+   Attore Primario: Direttore Generale
    
      Scenario principale successo:
-     1. Il responsabile azienda accede alla pagina "Visualizza allievi";
-     2. Il sistema mostra l'elenco degli allievi registrati, affianco a ciascuno dei quali è presente un bottone "Visualizza scheda";
-       2.1 Il responsabile azienda sceglie un allievo da consultare e clicca sul bottone "Visualizza scheda";
-       2.2 Il sistema mostra tutti i dati relativi all'allievo selezionato;
-     3. Il responsabile azienda può ordinare l'elenco cliccando su ordina per(menu a tendina) scegliendo una tra le opzioni proposte
-     (data iscrizione, nome, cognome, data di nascita);
-     4. Il sistema mostra l'elenco ordinato secondo la richiesta.
-     
-   UC6: Consultazione Centro
-   Attore Primario: responsabile azienda
+     1. Il direttore generale accede alla pagina "Elenco Allievi Finanzieri";
+     2. Il sistema mostrerà l'elenco degli allievi finanzieri registrati;
+      2.1 per ogni allievo finanziere saranno messi a disposizione in una lista ordinata dal sistema tutti i dati sensibili ed il centro a loro associato.
+   UC6: Consultazione Centro Operativo
+   Attore Primario: Direttore Generale
    
      Scenario principale successo:
-     1. Il responsabile azienda accede alla pagina "Visualizza centri";
-     2. Il sistema mostra l'elenco dei centri, affianco a ciascuno dei quali è presente un bottone "Scheda tecnica";
-       2.1 Il responsabile azienda sceglie un centro da consultare e clicca sul bottone;
-       2.2 Il sistema mostra tutte le attività relative al centro ed altri dati; 
-     3. Il responsabile azienda può ordinare l'elenco cliccando su ordina per(menu a tendina) scegliendo una tra le opzioni proposte
-     (data iscrizione, nome, cognome, data di nascita);
-     4. Il sistema mostra l'elenco ordinato secondo la richiesta.
+     1. Il direttore generale accede alla pagina "Visualizza l'elenco Centri Operativi";
+     2. Il sistema mostrerà l'elenco dei centri operativi, su ciascuno dei quali sarà possibile cliccare per visualizzare la relativa scheda tecnica;
+       2.1 Il sistema mostrerà tutti i corsi relativi al centro operativo ed altri dati;
+     3. in fondo al riepilogo dei dati è presente un bottone "Elimina Centro Operativo" dal quale sarà possibile sviluppare un ulteriore caso d'uso relativo la cancellazione del centro operativo preso in esame.
+
+   UC7: Consultazione Informazioni Responsabile Ufficiale
+   Attore Primario: Responsabile Ufficiale
+   
+     Scenario principale successo:
+     1. Il responsabile ufficiale accede alla pagina "Visualizza e gestisci le tue informazioni";
+     2. Il sistema mostrerà due tipologie di liste relative ad i corsi associati al centro gestito dal responsabile ufficiale;
+     2.1 mostrerà una lista relativa ai corsi che dovranno essere svolti ed un'altra in cui 
+     saranno visibili tutti i corsi già svolti;
+    3. saranno inoltre messe a disposizione dal sistema diverse informazioni aggiuntive come
+    il nome del corso e la data;
+    4. al fianco dei corsi in programma è presente un bottone "iscriviti" dalla quale sarà possibile sviluppare un ulteriore caso d'uso relativo l'iscrizione di un allievo, registrato al centro gestito dal responsabile ufficiale, al corso in programma(NON IMPLEMENTATO).
+      
