@@ -280,13 +280,6 @@ SPAN.td {
 					</div>
 					<font size="3"><span class="text-error" th:text="${errore}"></span>
 						<span class="text-success" th:text="${successo}"></span><br /> </font>
-					<!--  <div class="text-error" th:if="${societaNonSelezionata}">
-						Attualmente non sei iscritto a nessuna società. Puoi comunque modificare i tuoi dati atleta
-						dalla tua area personale e sceglierne una, oppure puoi creare una tua società alla quale
-						risulterai iscritto.<br /> <b>Ricorda che è necessario far parte di una società per
-							iscriversi ad una gara!!!</b> <br /> <font size="3"><a th:if="${current_username}"
-							th:href="@{/utente/} + ${current_username}">Fallo ora!</a> </font>
-					</div> -->
 					<div th:if="${successo}">
 						<hr />
 						<div class="clearfix" th:inline="text">

@@ -20,7 +20,6 @@ public class RedirectLoginSuccessHandler implements AuthenticationSuccessHandler
 			throws IOException, ServletException {
 		RedirectStrategy redirectStrategy = new DefaultRedirectStrategy(); 
 		System.out.println(authentication.toString());
-//		redirectStrategy.sendRedirect(request, response, "/utente/" + authentication.getName());
 		redirectStrategy.sendRedirect(request, response, "/");
 	}
 }

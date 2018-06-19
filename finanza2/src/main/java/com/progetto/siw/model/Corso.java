@@ -2,7 +2,6 @@ package com.progetto.siw.model;
 
 import java.sql.Time;
 import java.time.LocalDate;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -28,7 +27,7 @@ public class Corso implements Comparable<Corso>{
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(nullable = false)
-	private LocalDate data;//cambio
+	private LocalDate data;
 
 //	@NumberFormat(pattern = "hh:mm")
 //	@Column
@@ -46,15 +45,6 @@ public class Corso implements Comparable<Corso>{
 	public Corso() {
 		
 	}
-	
-//	public Corso(Long id, String nome, LocalDate data, Time orario) {
-//		this.id = id;
-//		this.nome = nome;
-//		this.data = data;
-//		this.orario = orario;
-//		this.completato=false;
-//		this.allieviFinanzieri = new LinkedList<>();
-//	}
 
 	public Long getId() {
 		return id;

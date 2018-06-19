@@ -77,21 +77,18 @@ public class AllievoController {
 		model.addAttribute("elencoCentri", centroService.findAll());
 
 		if (!bindingResult.hasErrors()) {
-			// controllo età minima
 			if (Calcolatore.convalidaEtaAllievo(allievo.getData())) {
 				if (!allievoService.isDuplicate(allievo)) {
-					/* Attributi manipolati */
+					
 					allievo.setNome(allievo.getNome().toUpperCase());
 					allievo.setCognome(allievo.getCognome().toUpperCase());
-
-
-					/* Relazioni */
+					
 					if (centroID!=null)
 						allievo.setCentro(centroService.findById(centroID));
 					else {
 						model.addAttribute("centroNonSelezionato", true);
 					}
-					// Service
+
 					allievoService.save(allievo);
 
 					model.addAttribute(allievo);

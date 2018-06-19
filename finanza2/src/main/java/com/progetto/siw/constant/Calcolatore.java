@@ -20,12 +20,4 @@ public class Calcolatore {
 	public static boolean isDataPassata(LocalDate date) {
 		return (Period.between(date, LocalDate.now()).getDays() > 0);
 	}
-
-	public static int calcolaEta(LocalDate birthDate, LocalDate currentDate) {
-		if ((birthDate != null) && (currentDate != null)) {
-			return Period.between(birthDate, currentDate).getYears();
-		} else {
-			return 0;
-		}
-	}
 }

@@ -36,7 +36,7 @@
 					<div class="title">
 						<h3>Lista dei Centri Operativi</h3>
 					</div>
-					<ul><br>
+					<ul>
 								<li th:each="centro: ${elencoCentri}"><a th:href="@{admin/listCentri/} + ${centro.id}"
 									th:text="${centro.nome}"></a></li>
 					</ul>
@@ -52,7 +52,7 @@
 					</div>
 					<hr width="300" />
 					<table th:unless="${#lists.isEmpty(centro.allievi)}">
-						<tr><br><br>
+						<tr>
 							<th align="left">Nome e Cognome Allievi</th>
 						</tr>
 						<tr>
