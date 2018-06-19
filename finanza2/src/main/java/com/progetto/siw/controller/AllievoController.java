@@ -47,7 +47,7 @@ public class AllievoController {
 		redir.addFlashAttribute("successo", "L'allievo è stato rimosso dal sistema");
 		return "redirect:/";
 	}
-	
+
 	@GetMapping("admin/allievi")
 	public String mostraCorsiCompletati(Model model) {
 		model.addAttribute("navAllievi", "active");
@@ -74,6 +74,7 @@ public class AllievoController {
 		String nextPage = "form";
 		model.addAttribute("navAllievi", "active");
 		model.addAttribute("formAllievo",true);
+		model.addAttribute("elencoCentri", centroService.findAll());
 
 		if (!bindingResult.hasErrors()) {
 			// controllo età minima

@@ -66,6 +66,7 @@ public class CorsoController {
 		String nextPage = "form";
 		model.addAttribute("navCorsi", "active");
 		model.addAttribute("formCorso", true);
+		model.addAttribute("elencoCentri", centroService.findAll());
 
 		if (!bindingResult.hasErrors()) {
 			// controllo data futura

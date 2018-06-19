@@ -57,6 +57,7 @@ public class CentroController {
 		String nextPage = "form";
 		model.addAttribute("navCentri", "active");
 		model.addAttribute("formCentro", true);
+		model.addAttribute("elencoUtenti", utenteService.findAll());
 
 		if (!bindingResult.hasErrors()) {
 				// controllo corso esistente nello stesso giorno

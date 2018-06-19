@@ -38,9 +38,9 @@ public class AllievoService {
 	}
 
 	public boolean isDuplicate(final Allievo allievo) {
-		List<Allievo> allievi = this.allievoRepository.findByNomeAndCognome(allievo.getNome(),allievo.getCognome());
+		List<Allievo> allievi = (List<Allievo>) this.allievoRepository.findAll();
 		for (Allievo a : allievi) {
-			if (a.getNome().equals(allievo.getNome()) && a.getData().equals(allievo.getData()))
+			if (a.getNome().equals(allievo.getNome().toUpperCase()) && a.getCognome().equals(allievo.getCognome().toUpperCase()) && a.getData().equals(allievo.getData()))
 				return true;
 		}
 		return false;

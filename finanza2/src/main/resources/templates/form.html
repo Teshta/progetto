@@ -76,15 +76,15 @@ SPAN.td {
 									<span th:if="${#fields.hasErrors('cognome')}">Errore:
 										campo obbligatorio</span>
 								</div>
-								 <div class="clearfix">
+								<div class="clearfix">
 									<label for="data"><span>Data di Nascita*:</span></label>
 									<div class="input">
 										<input tabindex="3" id="data" name="data" type="date"
-											 th:field="*{data}" required="required" />
+											th:field="*{data}" required="required" />
 									</div>
-									<span th:if="${#fields.hasErrors('data')}">Errore:
-										campo obbligatorio</span>
-								</div> 								
+									<span th:if="${#fields.hasErrors('data')}">Errore: campo
+										obbligatorio</span>
+								</div>
 								<div class="clearfix">
 									<label for="luogoNascita"><span>Luogo di
 											Nascita*:</span></label>
@@ -114,14 +114,18 @@ SPAN.td {
 										campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
-									<label for="centro"><span>Seleziona un Centro Operativo:</span></label>
+									<label for="centro"><span>Seleziona un Centro
+											Operativo:</span></label>
 									<div class="input">
-										<select tabindex="7" id="centro" name="centroID">
+										<select tabindex="7" id="centro" name="centroID"
+											required="required">
 											<option value="">&lt;seleziona&gt;</option>
 											<option th:each="centro: ${elencoCentri}"
 												th:value="${centro.id}" th:text="${centro.nome}"></option>
 										</select>
 									</div>
+									<span th:if="${#fields.hasErrors('centro')}">Errore:
+										campo obbligatorio</span>
 								</div>
 								<div class="actions">
 									<button tabindex="7" type="submit"
@@ -133,7 +137,7 @@ SPAN.td {
 				</div>
 				<!-- end: Form Allievo  -->
 
-				
+
 				<!-- start: Form Corso -->
 				<div th:if="${formCorso}" class="span5">
 					<div class="title">
@@ -162,14 +166,18 @@ SPAN.td {
 										obbligatorio</span>
 								</div>
 								<div class="clearfix">
-									<label for="centro"><span>Seleziona un Centro Operativo:</span></label>
+									<label for="centro"><span>Seleziona un Centro
+											Operativo:</span></label>
 									<div class="input">
-										<select tabindex="7" id="centro" name="centroID">
+										<select tabindex="7" id="centro" name="centroID"
+											required="required">
 											<option value="">&lt;seleziona&gt;</option>
 											<option th:each="centro: ${elencoCentri}"
 												th:value="${centro.id}" th:text="${centro.nome}"></option>
 										</select>
 									</div>
+									<span th:if="${#fields.hasErrors('centroOperativo')}">Errore:
+										campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
 									<div class="actions">
@@ -182,7 +190,7 @@ SPAN.td {
 					</div>
 				</div>
 				<!-- end: Form Corso -->
-				
+
 				<!-- start: Form Centro -->
 				<div th:if="${formCentro}" class="span5">
 					<div class="title">
@@ -207,8 +215,8 @@ SPAN.td {
 										<input tabindex="2" size="50" id="indirizzo" name="indirizzo"
 											type="text" th:value="*{indirizzo}" required="required" />
 									</div>
-									<span th:if="${#fields.hasErrors('indirizzo')}">Errore: campo
-										obbligatorio</span>
+									<span th:if="${#fields.hasErrors('indirizzo')}">Errore:
+										campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
 									<label for="email"><span>Email:</span></label>
@@ -216,8 +224,8 @@ SPAN.td {
 										<input tabindex="3" id="email" name="email" type="email"
 											th:field="*{email}" required="required" />
 									</div>
-									<span th:if="${#fields.hasErrors('email')}">Errore: campo
-										obbligatorio</span>
+									<span th:if="${#fields.hasErrors('email')}">Errore:
+										campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
 									<label for="telefono"><span>Telefono:</span></label>
@@ -225,27 +233,33 @@ SPAN.td {
 										<input tabindex="4" id="telefono" name="telefono" type="tel"
 											th:field="*{telefono}" required="required" />
 									</div>
-									<span th:if="${#fields.hasErrors('telefono')}">Errore: campo
-										obbligatorio</span>
+									<span th:if="${#fields.hasErrors('telefono')}">Errore:
+										campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
-									<label for="capMaxAllievi"><span>Capacità massima di allievi:</span></label>
+									<label for="capMaxAllievi"><span>Capacità
+											massima di allievi:</span></label>
 									<div class="input">
-										<input tabindex="5" size="50" id="capAllievi" name="capMaxAllievi"
-											type="number" th:value="*{capMaxAllievi}" required="required" />
+										<input tabindex="5" size="50" id="capAllievi"
+											name="capMaxAllievi" type="number"
+											th:value="*{capMaxAllievi}" required="required" />
 									</div>
-									<span th:if="${#fields.hasErrors('capMaxAllievi')}">Errore: campo
-										obbligatorio</span>
+									<span th:if="${#fields.hasErrors('capMaxAllievi')}">Errore:
+										campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
-									<label for="utente"><span>Seleziona un Responsabile:</span></label>
+									<label for="utente"><span>Seleziona un
+											Responsabile:</span></label>
 									<div class="input">
-										<select tabindex="6" id="utente" name="utenteID">
+										<select tabindex="6" id="utente" name="utenteID"
+											required="required">
 											<option value="">&lt;seleziona&gt;</option>
 											<option th:each="utente: ${elencoUtenti}"
 												th:value="${utente.id}" th:text="${utente.username}"></option>
 										</select>
 									</div>
+									<span th:if="${#fields.hasErrors('utente')}">Errore:
+										campo obbligatorio</span>
 								</div>
 								<div class="clearfix">
 									<div class="actions">
@@ -330,7 +344,8 @@ SPAN.td {
 									<b>Data di Svolgimento:</b> <span th:text="${corso.data}"></span>
 								</h4>
 								<h4>
-									<b>Centro associato:</b> <span th:text="${corso.centroOperativo.nome}"></span>
+									<b>Centro associato:</b> <span
+										th:text="${corso.centroOperativo.nome}"></span>
 								</h4>
 								<hr />
 								<h4>Ora gli allievi potranno essere iscritti al corso.</h4>
