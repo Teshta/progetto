@@ -58,7 +58,15 @@
 					</table>
 					<span th:if="${#lists.isEmpty(corso.allievi)}">Questo corso
 						non ha ancora allievi</span>
-
+					<div class="clearfix" sec:authorize="hasRole('ROLE_ADMIN')">
+						<hr  width="300"/>
+						[Pannello Direttore Generale]
+						<form th:action="@{/admin/deleteCorso/} + ${corso.id}" method="post">
+							<div class="input">
+								<input type="submit" value="Elimina corso" />
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 			<!-- end: Corso Panel -->

@@ -96,12 +96,7 @@
 													sec:authorize="hasRole('ROLE_UTENTE')"
 													th:href="@{/utente/} + ${current_username}">Visualizza
 														e gestisci le tue informazioni</a></li>
-												<li><a th:if="${current_username}"
-													sec:authorize="hasRole('ROLE_ADMIN')"
-													th:href="@{/admin/} + ${current_username}">Visualizza
-														e gestisci le tue informazioni</a></li>
 												<li class="text-error" th:text="${erroreNewAllievo}"></li>
-												<li class="text-error" th:text="${erroreNewCorso}"></li>
 											</ul></li>
 
 										<!--  Utente Autenticato -->

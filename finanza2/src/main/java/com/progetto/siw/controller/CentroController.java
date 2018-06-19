@@ -60,9 +60,7 @@ public class CentroController {
 		model.addAttribute("elencoUtenti", utenteService.utentiSenzaCentro());
 
 		if (!bindingResult.hasErrors()) {
-				// controllo corso esistente nello stesso giorno
 				if (!centroService.isDuplicateSameName(centro)) {
-					/*Attributi manipolati*/
 					centro.setNome(centro.getNome().toUpperCase());
 					if (utenteID!=null)
 						centro.setUtente(utenteService.findById(utenteID));

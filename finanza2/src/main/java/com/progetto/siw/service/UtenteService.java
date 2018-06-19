@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.progetto.siw.model.RuoloUtente;
 import com.progetto.siw.model.Utente;
 import com.progetto.siw.repository.UtenteRepository;
 

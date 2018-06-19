@@ -63,8 +63,6 @@
 						<tr>
 							<th width="200"><b>Data </b></th>
 							<th><b>Nome Corso</b></th>
-							<th sec:authorize="hasRole('ROLE_ADMIN')">[Pannello
-								Direttore Generale]</th>
 						</tr>
 						<tr>
 							<td colspan="3"><hr /></td>
@@ -76,14 +74,6 @@
 								<form th:action="@{/utente/addAllievo/}" method="get">
 									<div class="actions">
 										<input type="submit" value="Iscrivi" />
-									</div>
-								</form>
-							</td>
-							<td sec:authorize="hasRole('ROLE_ADMIN')">
-								<form th:action="@{/admin/deleteCorso/} + ${corso.id}"
-									method="post">
-									<div class="actions">
-										<input type="submit" value="Elimina Corso" />
 									</div>
 								</form>
 							</td>
@@ -113,14 +103,6 @@
 						<tr th:each="corso : ${corsiCentroPassati}">
 							<td th:text="${corso.data}" align="center" height="40"></td>
 							<td th:text="${corso.nome}"></td>
-							<td sec:authorize="hasRole('ROLE_ADMIN')">
-								<form th:action="@{/admin/deleteCorso/} + ${corso.id}"
-									method="post">
-									<div class="actions">
-										<input type="submit" value="Elimina corso" />
-									</div>
-								</form>
-							</td>
 						</tr>
 					</table>
 					<span th:if="${#lists.isEmpty(corsiCentroPassati)}"><font
