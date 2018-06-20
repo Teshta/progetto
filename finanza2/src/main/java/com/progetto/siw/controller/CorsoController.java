@@ -82,8 +82,6 @@ public class CorsoController {
 	@PostMapping("/admin/deleteCorso/{id}")
 	public String eliminaCorso(@PathVariable("id") Long id, 
 			RedirectAttributes redir, Model model){
-		corsoService.deleteById(id);
-		redir.addFlashAttribute("successo", "Il corso è stato rimosso dal sistema");
-		return "redirect:/listCorsi";
+		return "redirect:/";
 	}
 }

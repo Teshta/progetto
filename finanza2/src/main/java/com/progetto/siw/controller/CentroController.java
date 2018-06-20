@@ -78,8 +78,6 @@ public class CentroController {
 	@PostMapping("/admin/deleteCentro/{id}")
 	public String eliminaCentro(@PathVariable("id") Long id, 
 			RedirectAttributes redir, Model model){
-		centroService.deleteById(id);
-		redir.addFlashAttribute("successo", "Il centro è stata rimossa dal sistema");
 		return "redirect:/listCentri";
 	}
 }

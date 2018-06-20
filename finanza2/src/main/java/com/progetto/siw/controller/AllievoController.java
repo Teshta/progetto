@@ -40,14 +40,6 @@ public class AllievoController {
 		return "view_allievo";
 	}
 
-	@PostMapping("/admin/deleteAllievo/{id}")
-	public String eliminaAllievo(@PathVariable("id") Long id, 
-			RedirectAttributes redir, Model model){
-		allievoService.deleteById(id);
-		redir.addFlashAttribute("successo", "L'allievo è stato rimosso dal sistema");
-		return "redirect:/";
-	}
-
 	@GetMapping("admin/allievi")
 	public String mostraCorsiCompletati(Model model) {
 		model.addAttribute("navAllievi", "active");
@@ -79,10 +71,10 @@ public class AllievoController {
 		if (!bindingResult.hasErrors()) {
 			if (Calcolatore.convalidaEtaAllievo(allievo.getData())) {
 				if (!allievoService.isDuplicate(allievo)) {
-					
+
 					allievo.setNome(allievo.getNome().toUpperCase());
 					allievo.setCognome(allievo.getCognome().toUpperCase());
-					
+
 					if (centroID!=null)
 						allievo.setCentro(centroService.findById(centroID));
 					else {
@@ -101,5 +93,11 @@ public class AllievoController {
 		}
 		model.addAttribute("elencoCentri", centroService.findAll());
 		return nextPage;
+	}
+	
+	@PostMapping("/admin/deleteAllievo/{id}")
+	public String eliminaAllievo(@PathVariable("id") Long id, 
+			RedirectAttributes redir, Model model){
+		return "redirect:/";
 	}
 }
