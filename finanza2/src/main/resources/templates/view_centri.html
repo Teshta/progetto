@@ -50,13 +50,13 @@
 					<div class="clearfix"><br>
 						<h4 th:text="'Responsabile: ' + ${centro.utente.username}"></h4>
 					</div>
-					<hr width="300" />
+					<hr width="400" />
 					<table th:unless="${#lists.isEmpty(centro.allievi)}">
 						<tr>
 							<th align="left">Nome e Cognome Allievi</th>
 						</tr>
 						<tr>
-							<td><hr width="300" /></td>
+							<td><hr width="400" /></td>
 						</tr>
 						<tr align="left" th:each="allievo : ${centro.allievi}">
 							<td><a th:href="@{/allievo/} + ${allievo.id}"
@@ -65,13 +65,13 @@
 					</table>
 					<span th:if="${#lists.isEmpty(centro.allievi)}">Questo centro non ha ancora allievi</span>
 					
-					<hr width="300" />
+					<hr width="400" />
 					<table th:unless="${#lists.isEmpty(centro.corsi)}">
 						<tr>
 							<th align="left">Nome Corso</th>
 						</tr>
 						<tr>
-							<td colspan="2"><hr width="300" /></td>
+							<td colspan="2"><hr width="400" /></td>
 						</tr>
 						<tr align="left" th:each="corso : ${centro.corsi}">
 							<td><a th:href="@{/corso/} + ${corso.id}"
@@ -80,7 +80,7 @@
 					</table>
 					<span th:if="${#lists.isEmpty(centro.corsi)}">Questo centro non ha ancora corsi</span>
 					<div class="clearfix" sec:authorize="hasRole('ROLE_ADMIN')">
-						<hr  width="300"/>
+						<hr  width="400"/>
 						[Pannello Direttore Generale]
 						<form th:action="@{/admin/deleteCentro/} + ${centro.id}" method="post">
 							<div class="input">
