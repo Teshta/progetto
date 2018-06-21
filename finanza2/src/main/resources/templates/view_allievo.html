@@ -48,10 +48,10 @@
 					<hr />
 					<div class="clearfix" sec:authorize="hasRole('ROLE_ADMIN')">
 						<hr />
-						[Pannello Amministratore]
+						[Pannello Direttore Generale]
 						<form th:action="@{/admin/deleteAllievo/} + ${allievo.id}" method="post">
 							<div class="input">
-								<input type="submit" value="Elimina allievo" />
+								<input type="submit" value="Elimina Allievo Finanziere" />
 							</div>
 						</form>
 					</div>
