@@ -78,6 +78,7 @@ public class CentroController {
 	@PostMapping("/admin/deleteCentro/{id}")
 	public String eliminaCentro(@PathVariable("id") Long id, 
 			RedirectAttributes redir, Model model){
+		//DA IMPLEMENTARE
 		return "redirect:/listCentri";
 	}
 }

@@ -40,7 +40,6 @@ public class CorsoController {
 	public String mostraCorso(@PathVariable("id") Long id, Model model){
 		Corso corso = corsoService.findById(id);
 		model.addAttribute("navCorsi", "active");
-//		model.addAttribute("corsiAperti", corsoService.getCorsiAperti());
 		model.addAttribute("corsoPanel", true);
 		model.addAttribute("corso", corso);
 		return "view_corso";
@@ -82,6 +81,7 @@ public class CorsoController {
 	@PostMapping("/admin/deleteCorso/{id}")
 	public String eliminaCorso(@PathVariable("id") Long id, 
 			RedirectAttributes redir, Model model){
+		//DA IMPLEMENTARE
 		return "redirect:/";
 	}
 }

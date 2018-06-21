@@ -98,6 +98,7 @@ public class AllievoController {
 	@PostMapping("/admin/deleteAllievo/{id}")
 	public String eliminaAllievo(@PathVariable("id") Long id, 
 			RedirectAttributes redir, Model model){
+		//DA IMPLEMENTARE
 		return "redirect:/";
 	}
 }
