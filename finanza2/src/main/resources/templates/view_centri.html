@@ -50,6 +50,7 @@
 					<div class="clearfix"><br>
 						<h4 th:text="'Responsabile: ' + ${centro.utente.username}"></h4>
 					</div>
+					<br>
 					<hr width="400" />
 					<table th:unless="${#lists.isEmpty(centro.allievi)}">
 						<tr>
@@ -66,6 +67,7 @@
 					<span th:if="${#lists.isEmpty(centro.allievi)}">Questo centro non ha ancora allievi</span>
 					
 					<hr width="400" />
+					<br>
 					<table th:unless="${#lists.isEmpty(centro.corsi)}">
 						<tr>
 							<th align="left">Nome Corso</th>
@@ -80,7 +82,7 @@
 					</table>
 					<span th:if="${#lists.isEmpty(centro.corsi)}">Questo centro non ha ancora corsi</span>
 					<div class="clearfix" sec:authorize="hasRole('ROLE_ADMIN')">
-						<hr  width="400"/>
+						<hr  width="400"/><br><br>
 						[Pannello Direttore Generale]
 						<form th:action="@{/admin/deleteCentro/} + ${centro.id}" method="post">
 							<div class="input">
